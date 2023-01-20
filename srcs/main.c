@@ -6,7 +6,7 @@
 /*   By: tsodre-p <tsodre-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 11:37:18 by tsodre-p          #+#    #+#             */
-/*   Updated: 2023/01/20 14:02:54 by tsodre-p         ###   ########.fr       */
+/*   Updated: 2023/01/20 16:19:18 by tsodre-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,13 @@
 
 int	main(int argc, char **argv)
 {
-	//https://github.com/0x050f/push_swap/tree/main/srcs/push_swap/srcs
 	int	i;
+	int	j;
+	t_stack	*stack_a;
+	t_stack	*stack_b;
 
 	i = 1;
+	j = 0;
 	if (argc < 2)
 	{
 		ft_printf("%s", "Please introduce a valid number of arguments!");
@@ -25,12 +28,17 @@ int	main(int argc, char **argv)
 	}
 	while (i < argc)
 	{
-		if (!ft_isdigit(ft_atoi(argv[i])))
+		while (argv[i][j] != '\0')
 		{
-			ft_printf("%s", "Not all the arguments are numbers!");
-			return (0);
+			if (!ft_isdigit(argv[i][j]))
+			{
+				ft_printf("%s", "Not all the arguments are numbers!");
+				return (0);
+			}
+			j++;
 		}
+		i++;
 	}
+	start_stacks(argc, *argv, stack_a, stack_b);
 	return (0);
 }
-

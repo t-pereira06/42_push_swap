@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fill_stack.c                                       :+:      :+:    :+:   */
+/*   start_stacks.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tsodre-p <tsodre-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 15:06:32 by tsodre-p          #+#    #+#             */
-/*   Updated: 2023/01/20 14:09:26 by tsodre-p         ###   ########.fr       */
+/*   Updated: 2023/01/20 16:10:49 by tsodre-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ int	fill_stack(int argc, char *argv, t_stack *stack_a)
 	}
 }
 
-int	init_stacks(int argc, char *argv, t_stack *stack_a, t_stack *stack_b)
+int	start_stacks(int argc, char *argv, t_stack *stack_a, t_stack *stack_b)
 {
 	int	stack_size;
 
