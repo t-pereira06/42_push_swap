@@ -6,21 +6,31 @@
 /*   By: tsodre-p <tsodre-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 11:37:18 by tsodre-p          #+#    #+#             */
-/*   Updated: 2023/01/19 14:59:26 by tsodre-p         ###   ########.fr       */
+/*   Updated: 2023/01/20 14:02:54 by tsodre-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-int	main(void)
+int	main(int argc, char **argv)
 {
-	t_stack	*stack_a;
-
-	ft_printf("%s", "before:");
-	ft_printlist(stack_a);
-	ft_printf("%s", "\n");
-	sa(stack_a);
 	//https://github.com/0x050f/push_swap/tree/main/srcs/push_swap/srcs
+	int	i;
+
+	i = 1;
+	if (argc < 2)
+	{
+		ft_printf("%s", "Please introduce a valid number of arguments!");
+		return (0);
+	}
+	while (i < argc)
+	{
+		if (!ft_isdigit(ft_atoi(argv[i])))
+		{
+			ft_printf("%s", "Not all the arguments are numbers!");
+			return (0);
+		}
+	}
 	return (0);
 }
 

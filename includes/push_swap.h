@@ -6,7 +6,7 @@
 /*   By: tsodre-p <tsodre-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 15:48:18 by tsodre-p          #+#    #+#             */
-/*   Updated: 2023/01/19 14:49:14 by tsodre-p         ###   ########.fr       */
+/*   Updated: 2023/01/20 11:10:16 by tsodre-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@
 typedef struct		s_stack
 {
 	int				*array;
-	size_t			size;
+	int			size;
 	size_t			max_size;
 }					t_stack;
 
