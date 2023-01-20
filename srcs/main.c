@@ -6,7 +6,7 @@
 /*   By: tsodre-p <tsodre-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 11:37:18 by tsodre-p          #+#    #+#             */
-/*   Updated: 2023/01/20 16:22:34 by tsodre-p         ###   ########.fr       */
+/*   Updated: 2023/01/20 16:33:38 by tsodre-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ int	main(int argc, char **argv)
 {
 	int	i;
 	int	j;
+	t_stack	*stack_a;
+	t_stack	*stack_b;
 
 	i = 1;
 	j = 0;
@@ -37,6 +39,6 @@ int	main(int argc, char **argv)
 		}
 		i++;
 	}
-	start_stacks(argc, *argv);
+	start_stacks(argc, *argv, stack_a, stack_b);
 	return (0);
 }
