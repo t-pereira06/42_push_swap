@@ -6,7 +6,7 @@
 /*   By: tsodre-p <tsodre-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 15:06:32 by tsodre-p          #+#    #+#             */
-/*   Updated: 2023/01/20 16:10:49 by tsodre-p         ###   ########.fr       */
+/*   Updated: 2023/01/20 16:21:19 by tsodre-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,9 +64,11 @@ int	fill_stack(int argc, char *argv, t_stack *stack_a)
 	}
 }
 
-int	start_stacks(int argc, char *argv, t_stack *stack_a, t_stack *stack_b)
+int	start_stacks(int argc, char *argv)
 {
 	int	stack_size;
+	t_stack	*stack_a;
+	t_stack	*stack_b;
 
 	stack_size = count_stack_size(argc, argv);
 	if (!(stack_a->array = malloc(sizeof(int) * stack_size)))

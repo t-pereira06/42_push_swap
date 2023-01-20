@@ -6,7 +6,7 @@
 #    By: tsodre-p <tsodre-p@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/02 14:26:29 by tsodre-p          #+#    #+#              #
-#    Updated: 2023/01/19 11:40:33 by tsodre-p         ###   ########.fr        #
+#    Updated: 2023/01/20 16:23:31 by tsodre-p         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,10 +19,10 @@ RM = rm -f
 CFLAGS = -Wall -Wextra -Werror
 AR = ar rcs
 
-FILES = srcs/sa.c srcs/sb.c srcs/main.c
+FILES = srcs/sa.c srcs/sb.c srcs/main.c srcs/start_stacks.c
 
 OBJ = $(FILES:%.c=%.o)
-FILES_O = srcs/sa.o srcs/sb.o srcs/main.o
+FILES_O = srcs/sa.o srcs/sb.o srcs/main.o srcs/start_stacks.o
 
 all: $(NAME)
 
