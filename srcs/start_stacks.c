@@ -6,87 +6,86 @@
 /*   By: tsodre-p <tsodre-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 15:06:32 by tsodre-p          #+#    #+#             */
-/*   Updated: 2023/01/20 16:36:00 by tsodre-p         ###   ########.fr       */
+/*   Updated: 2023/01/25 16:08:32 by tsodre-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*functions to fill the stacks, counting the size of it and fill it in the struct field size*/
 #include "../includes/push_swap.h"
-
-int	size_arg(char *arg)
+void	initialize_stacks(stack stack_a, stack stack_b)
 {
-	int	i;
-
-	while (arg[i] != '\0')
-	{
-		i++;
-	}
-	return (i);
+	stack_a.size = 0;
+	stack_a.array = 0;
+	stack_b.size = 0;
+	stack_b.array = 0;
 }
 
-int	count_stack_size(int argc, char *argv[])
+void	check_args(int argc, char **argv)
 {
 	int	i;
 	int	j;
-	int	size;
 
-	size = 0;
 	i = 0;
+	j = 0;
+	if (argc < 2)
+	{
+		write(1, "Please introduce a valid number of arguments!\n", 47);
+		exit (1);
+	}
 	while (i < argc)
 	{
-		j = 0;
-		while (argv[i][j])
+		while (argv[i][j] != '\0')
 		{
-			size++;
+			if (!ft_isdigit(argv[i][j]))
+			{
+				write(1, "Not all the arguments are numbers!\n", 36);
+				exit (1);
+			}
 			j++;
 		}
+		j = 0;
 		i++;
 	}
-	return (size);
 }
 
-int	fill_stack(int argc, char *argv, t_stack *stack_a)
+int	fill_stack(char *argv, stack stack_a, int a)
+{
+	stack_a.size += 1;
+	stack_a.array[a] = ft_atoi(argv);
+	return (stack_a.size);
+}
+
+int	main(int argc, char **argv)
 {
 	int	i;
-	int	a;
+	int	j;
+	stack	stack_a;
+	stack	stack_b;
 
-	i = stack_a->size;
-	a = 0;
-	while (i < argc)
+	i = 1;
+	j = 0;
+	initialize_stacks(stack_a, stack_b);
+	stack_a.size = 0;
+	stack_a.array = (int *)malloc(sizeof(int) * (argc - 1));
+	stack_b.size = 0;
+	stack_b.array = (int *)malloc(sizeof(int) * (argc - 1));
+	//check_args(argc, argv);
+	while (argv[i])
 	{
-		stack_a->size += size_arg(argv[1]);
-		while (argv[i] != '\0')
-		{
-			stack_a->array[i] = ft_atoi(argv[i]);
-			a++;
-		}
+		stack_a.size = fill_stack(argv[i], stack_a, j);
 		i++;
+		j++;
 	}
-}
-
-int	start_stacks(int argc, char *argv, t_stack *stack_a, t_stack *stack_b)
-{
-	int	stack_size;
-
-	stack_size = count_stack_size(argc, argv);
-	if (!(stack_a->array = malloc(sizeof(int) * stack_size)))
-		return (write(1, "Error allocating stack_a!\n", 27));
-	if (!(stack_b->array = malloc(sizeof(int) * stack_size)))
+	j = 0;
+	printf("%s", "Array size: ");
+	printf("%d", stack_a.size);
+	printf("%s", "\n");
+	printf("%s", "Array: ");
+	while (j < stack_a.size)
 	{
-		free(stack_a->array);
-		ft_printf("%s", "Error allocating stack_b!");
-		return (0);
-	}
-	stack_a->max_size = stack_size;
-	stack_b->max_size = stack_size;
-	stack_a->size = 0;
-	stack_b->size = 0;
-	if (!fill_stack(argc, argv, stack_a))
-	{
-		free(stack_a->array);
-		free(stack_b->array);
-		ft_printf("%s", "Error filling the stack!");
-		return (0);
+		printf("%d", stack_a.array[j]);
+		printf("%s", " | ");
+		j++;
 	}
 	return (0);
 }
