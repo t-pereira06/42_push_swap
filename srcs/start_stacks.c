@@ -6,7 +6,7 @@
 /*   By: tsodre-p <tsodre-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 15:06:32 by tsodre-p          #+#    #+#             */
-/*   Updated: 2023/01/26 14:47:47 by tsodre-p         ###   ########.fr       */
+/*   Updated: 2023/01/26 17:00:53 by tsodre-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -142,7 +142,7 @@ int	main(int argc, char **argv)
 	}
 	//return (0);
 	//acaba aqui a funcao, apagar a partir daqui
-	i = 1;
+	/*i = 1;
 	j = 0;
 	while (argv[i])
 	{
@@ -150,14 +150,14 @@ int	main(int argc, char **argv)
 		i++;
 		j++;
 	}
-	j = 0;
+	j = 0;*/
 	print_stacks(stack_a, stack_b);
 	printf("%s", "\n\n");
 	//sa(&stack_a);
 	//sb(&stack_b);
 	//ss(&stack_a, &stack_b);
 	//pa(&stack_a, &stack_b);
-	//pb(&stack_a, &stack_b);
+	pb(&stack_a, &stack_b);
 	print_stacks(stack_a, stack_b);
 	return (0);
 }
