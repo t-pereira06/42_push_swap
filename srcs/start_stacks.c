@@ -6,18 +6,57 @@
 /*   By: tsodre-p <tsodre-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 15:06:32 by tsodre-p          #+#    #+#             */
-/*   Updated: 2023/01/25 16:08:32 by tsodre-p         ###   ########.fr       */
+/*   Updated: 2023/01/26 10:14:34 by tsodre-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*functions to fill the stacks, counting the size of it and fill it in the struct field size*/
 #include "../includes/push_swap.h"
-void	initialize_stacks(stack stack_a, stack stack_b)
+void	print_stacks(stack stack_a, stack stack_b)
 {
-	stack_a.size = 0;
-	stack_a.array = 0;
-	stack_b.size = 0;
-	stack_b.array = 0;
+	int	j;
+
+	j = 0;
+	printf("%s", "Array A size: ");
+	printf("%d", stack_a.size);
+	printf("%s", "\n");
+	printf("%s", "Array A: ");
+	while (j < stack_a.size)
+	{
+		if(stack_a.array[0] == 0)
+		{
+			printf("%s", "(null)");
+			break;
+		}
+		printf("%d", stack_a.array[j]);
+		printf("%s", "|");
+		j++;
+	}
+	printf("%s", "\n");
+	j = 0;
+	printf("%s", "Array B size: ");
+	printf("%d", stack_b.size);
+	printf("%s", "\n");
+	printf("%s", "Array B: ");
+	while (j < stack_b.size)
+	{
+		if(stack_b.array[0] == 0)
+		{
+			printf("%s", "(null)");
+			break;
+		}
+		printf("%d", stack_b.array[j]);
+		printf("%s", "|");
+		j++;
+	}
+}
+
+void	initialize_stacks(stack *stack_a, stack *stack_b)
+{
+	stack_a->size = 0;
+	stack_a->array = 0;
+	stack_b->size = 0;
+	stack_b->array = 0;
 }
 
 void	check_args(int argc, char **argv)
@@ -25,7 +64,7 @@ void	check_args(int argc, char **argv)
 	int	i;
 	int	j;
 
-	i = 0;
+	i = 1;
 	j = 0;
 	if (argc < 2)
 	{
@@ -64,28 +103,31 @@ int	main(int argc, char **argv)
 
 	i = 1;
 	j = 0;
-	initialize_stacks(stack_a, stack_b);
+	initialize_stacks(&stack_a, &stack_b);
 	stack_a.size = 0;
-	stack_a.array = (int *)malloc(sizeof(int) * (argc - 1));
+	stack_a.array = (int*)malloc(sizeof(int) * (argc - 1));
 	stack_b.size = 0;
-	stack_b.array = (int *)malloc(sizeof(int) * (argc - 1));
-	//check_args(argc, argv);
+	stack_b.array = (int*)malloc(sizeof(int) * (argc - 1));
+	check_args(argc, argv);
 	while (argv[i])
 	{
 		stack_a.size = fill_stack(argv[i], stack_a, j);
 		i++;
 		j++;
 	}
+	/*i = 1;
 	j = 0;
-	printf("%s", "Array size: ");
-	printf("%d", stack_a.size);
-	printf("%s", "\n");
-	printf("%s", "Array: ");
-	while (j < stack_a.size)
+	while (argv[i])
 	{
-		printf("%d", stack_a.array[j]);
-		printf("%s", " | ");
+		stack_b.size = fill_stack(argv[i], stack_b, j);
+		i++;
 		j++;
-	}
+	}*/
+	j = 0;
+	print_stacks(stack_a, stack_b);
+	printf("%s", "\n\n");
+	sa(&stack_a);
+	sb(&stack_b);
+	print_stacks(stack_a, stack_b);
 	return (0);
 }
