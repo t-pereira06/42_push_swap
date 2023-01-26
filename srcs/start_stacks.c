@@ -6,7 +6,7 @@
 /*   By: tsodre-p <tsodre-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 15:06:32 by tsodre-p          #+#    #+#             */
-/*   Updated: 2023/01/26 10:15:32 by tsodre-p         ###   ########.fr       */
+/*   Updated: 2023/01/26 11:16:44 by tsodre-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,16 +68,16 @@ void	check_args(int argc, char **argv)
 	j = 0;
 	if (argc < 2)
 	{
-		write(1, "Please introduce a valid number of arguments!\n", 47);
+		write(1, "Error!\n", 8);
 		exit (1);
 	}
 	while (i < argc)
 	{
 		while (argv[i][j] != '\0')
 		{
-			if (!ft_isdigit(argv[i][j]))
+			if (!ft_isdigit(argv[i][j]) || (ft_atoi(argv[i]) > INT32_MAX))
 			{
-				write(1, "Not all the arguments are numbers!\n", 36);
+				write(1, "Error!\n", 8);
 				exit (1);
 			}
 			j++;
@@ -87,10 +87,33 @@ void	check_args(int argc, char **argv)
 	}
 }
 
-int	fill_stack(char *argv, stack stack_a, int a)
+int	check_stack (char *argv, stack stack_a)
+{
+	int	i;
+
+	i = 0;
+	while (i < stack_a.size)
+	{
+		if (ft_atoi(argv) == stack_a.array[i])
+		{
+			write(1, "Error!\n", 8);
+			free(stack_a.array);
+			exit (1);
+		}
+		i++;
+	}
+	return (1);
+}
+
+int	fill_stack(char *argv, stack stack_a)
 {
 	stack_a.size += 1;
-	stack_a.array[a] = ft_atoi(argv);
+	if (check_stack(argv, stack_a) == 1)
+	{
+		stack_a.array[stack_a.size - 1] = ft_atoi(argv);
+	}
+	else
+		stack_a.size -= 1;
 	return (stack_a.size);
 }
 
@@ -111,23 +134,25 @@ int	main(int argc, char **argv)
 	check_args(argc, argv);
 	while (argv[i])
 	{
-		stack_a.size = fill_stack(argv[i], stack_a, j);
+		stack_a.size = fill_stack(argv[i], stack_a);
 		i++;
 		j++;
 	}
-	/*i = 1;
+	//acaba aqui a funcao
+	i = 1;
 	j = 0;
 	while (argv[i])
 	{
-		stack_b.size = fill_stack(argv[i], stack_b, j);
+		stack_b.size = fill_stack(argv[i], stack_b);
 		i++;
 		j++;
-	}*/
+	}
 	j = 0;
 	print_stacks(stack_a, stack_b);
 	printf("%s", "\n\n");
-	sa(&stack_a);
-	sb(&stack_b);
-	print_stacks(stack_a, stack_b);
+	//sa(&stack_a);
+	//sb(&stack_b);
+	//ss(&stack_a, &stack_b);
+	//print_stacks(stack_a, stack_b);
 	return (0);
 }
