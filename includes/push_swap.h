@@ -6,7 +6,7 @@
 /*   By: tsodre-p <tsodre-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 15:48:18 by tsodre-p          #+#    #+#             */
-/*   Updated: 2023/01/26 10:57:08 by tsodre-p         ###   ########.fr       */
+/*   Updated: 2023/01/26 14:41:45 by tsodre-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,15 +20,16 @@
 # include <limits.h>
 # include "../libft/libft.h"
 
-typedef struct		stack
+typedef struct stack
 {
-	int				*array;
+	int			*array;
 	int			size;
-}					stack;
+}					t_stack;
 
-void	sa(stack *stack_a);
-void	sb(stack *stack_b);
-void	ss(stack *stack_a, stack *stack_b);
-void	pa(stack *stack_a);
+void	sa(t_stack *stack_a);
+void	sb(t_stack *stack_b);
+void	ss(t_stack *stack_a, t_stack *stack_b);
+int		pa(t_stack *stack_a, t_stack *stack_b);
+int		pb(t_stack *stack_a, t_stack *stack_b);
 
 #endif

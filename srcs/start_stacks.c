@@ -6,13 +6,15 @@
 /*   By: tsodre-p <tsodre-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 15:06:32 by tsodre-p          #+#    #+#             */
-/*   Updated: 2023/01/26 11:16:44 by tsodre-p         ###   ########.fr       */
+/*   Updated: 2023/01/26 14:47:47 by tsodre-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/*functions to fill the stacks, counting the size of it and fill it in the struct field size*/
+/*functions to fill the stacks, allocate memory for the array,
+counting the size of it and fill it in the struct field size*/
 #include "../includes/push_swap.h"
-void	print_stacks(stack stack_a, stack stack_b)
+
+void	print_stacks(t_stack stack_a, t_stack stack_b)
 {
 	int	j;
 
@@ -51,7 +53,7 @@ void	print_stacks(stack stack_a, stack stack_b)
 	}
 }
 
-void	initialize_stacks(stack *stack_a, stack *stack_b)
+void	initialize_stacks(t_stack *stack_a, t_stack *stack_b)
 {
 	stack_a->size = 0;
 	stack_a->array = 0;
@@ -87,7 +89,7 @@ void	check_args(int argc, char **argv)
 	}
 }
 
-int	check_stack (char *argv, stack stack_a)
+int	check_stack(char *argv, t_stack stack_a)
 {
 	int	i;
 
@@ -105,7 +107,7 @@ int	check_stack (char *argv, stack stack_a)
 	return (1);
 }
 
-int	fill_stack(char *argv, stack stack_a)
+int	fill_stack(char *argv, t_stack stack_a)
 {
 	stack_a.size += 1;
 	if (check_stack(argv, stack_a) == 1)
@@ -119,18 +121,18 @@ int	fill_stack(char *argv, stack stack_a)
 
 int	main(int argc, char **argv)
 {
-	int	i;
-	int	j;
-	stack	stack_a;
-	stack	stack_b;
+	t_stack	stack_a;
+	t_stack	stack_b;
+	int		i;
+	int		j;
 
 	i = 1;
 	j = 0;
 	initialize_stacks(&stack_a, &stack_b);
 	stack_a.size = 0;
-	stack_a.array = (int*)malloc(sizeof(int) * (argc - 1));
+	stack_a.array = (int *)malloc(sizeof(int) * (argc - 1));
 	stack_b.size = 0;
-	stack_b.array = (int*)malloc(sizeof(int) * (argc - 1));
+	stack_b.array = (int *)malloc(sizeof(int) * (argc - 1));
 	check_args(argc, argv);
 	while (argv[i])
 	{
@@ -138,7 +140,8 @@ int	main(int argc, char **argv)
 		i++;
 		j++;
 	}
-	//acaba aqui a funcao
+	//return (0);
+	//acaba aqui a funcao, apagar a partir daqui
 	i = 1;
 	j = 0;
 	while (argv[i])
@@ -153,6 +156,8 @@ int	main(int argc, char **argv)
 	//sa(&stack_a);
 	//sb(&stack_b);
 	//ss(&stack_a, &stack_b);
-	//print_stacks(stack_a, stack_b);
+	//pa(&stack_a, &stack_b);
+	//pb(&stack_a, &stack_b);
+	print_stacks(stack_a, stack_b);
 	return (0);
 }

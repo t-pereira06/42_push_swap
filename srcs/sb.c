@@ -6,16 +6,16 @@
 /*   By: tsodre-p <tsodre-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 11:29:36 by tsodre-p          #+#    #+#             */
-/*   Updated: 2023/01/25 10:54:59 by tsodre-p         ###   ########.fr       */
+/*   Updated: 2023/01/26 14:42:10 by tsodre-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
 /*swap the first element with the second in stack b*/
-void	sb(stack *stack_b)
+void	sb(t_stack *stack_b)
 {
-	int tmp;
+	int	tmp;
 
 	if (stack_b->size > 1)
 	{
