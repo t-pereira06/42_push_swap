@@ -6,7 +6,7 @@
 /*   By: tsodre-p <tsodre-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 15:06:32 by tsodre-p          #+#    #+#             */
-/*   Updated: 2023/01/26 17:00:53 by tsodre-p         ###   ########.fr       */
+/*   Updated: 2023/02/06 11:54:15 by tsodre-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -157,7 +157,13 @@ int	main(int argc, char **argv)
 	//sb(&stack_b);
 	//ss(&stack_a, &stack_b);
 	//pa(&stack_a, &stack_b);
-	pb(&stack_a, &stack_b);
+	//pb(&stack_a, &stack_b);
+	ra(&stack_a);
+	//rb(&stack_b);
+	//rr(&stack_a, &stack_b);
+	//rra(&stack_a);
+	//rrb(&stack_b);
+	//rrr(&stack_a, &stack_b);
 	print_stacks(stack_a, stack_b);
 	return (0);
 }

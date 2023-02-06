@@ -6,7 +6,7 @@
 /*   By: tsodre-p <tsodre-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/26 10:26:12 by tsodre-p          #+#    #+#             */
-/*   Updated: 2023/01/26 14:41:53 by tsodre-p         ###   ########.fr       */
+/*   Updated: 2023/02/06 10:43:27 by tsodre-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	fill_stack_b(t_stack *stack_b)
 	i = 1;
 	while (i <= stack_b->size)
 	{
-		stack_b->array[i -1] = tmp[i];
+		stack_b->array[i - 1] = tmp[i];
 		i++;
 	}
 	free(tmp);
