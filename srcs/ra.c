@@ -6,7 +6,7 @@
 /*   By: tsodre-p <tsodre-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/06 11:47:06 by tsodre-p          #+#    #+#             */
-/*   Updated: 2023/02/06 11:59:34 by tsodre-p         ###   ########.fr       */
+/*   Updated: 2023/02/06 13:01:52 by tsodre-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,12 +30,13 @@ void	ra(t_stack *stack_a)
 		}
 		free(stack_a->array);
 		stack_a->array = (int *)malloc(sizeof(int) * (stack_a->size));
+		i = 0;
 		while (i < stack_a->size)
 		{
 			stack_a->array[i] = tmp[i + 1];
 			i++;
 		}
-		//stack_a->array[stack_a->size] = tmp[0];
+		stack_a->array[stack_a->size - 1] = tmp[0];
 		free(tmp);
 	}
 }
