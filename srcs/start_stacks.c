@@ -6,7 +6,7 @@
 /*   By: tsodre-p <tsodre-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 15:06:32 by tsodre-p          #+#    #+#             */
-/*   Updated: 2023/02/07 11:38:53 by tsodre-p         ###   ########.fr       */
+/*   Updated: 2023/02/07 15:35:33 by tsodre-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -164,7 +164,7 @@ int	main(int argc, char **argv)
 	//rra(&stack_a);
 	//rrb(&stack_b);
 	//rrr(&stack_a, &stack_b);
-	ft_printf("Operations: %d\n\n", sort_3_num(&stack_a));
+	ft_printf("Operations: %d\n\n", sort_3_numbers(&stack_a));
 	print_stacks(stack_a, stack_b);
 	free(stack_a.array);
 	free(stack_b.array);
