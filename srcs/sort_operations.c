@@ -6,7 +6,7 @@
 /*   By: tsodre-p <tsodre-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/07 11:03:22 by tsodre-p          #+#    #+#             */
-/*   Updated: 2023/02/07 15:35:59 by tsodre-p         ###   ########.fr       */
+/*   Updated: 2023/02/07 17:32:18 by tsodre-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,23 +20,18 @@ int	sort_3_numbers(t_stack *stack_a)
 
 	operations = 1;
 	a = stack_a->array;
-	/*case 1*/
 	if ((a[0] > a[1]) && (a[0] < a[2]))
 		sa(stack_a);
-	/*case 2*/
 	else if ((a[0] > a[1]) && (a[0] > a[2]) && (a[1] < a[2]))
 		ra(stack_a);
-	/*case 3*/
 	else if ((a[2] < a[1]) && (a[1] > a[0]) && (a[0] > a[2]))
 		rra(stack_a);
-	/*case 4*/
 	else if ((a[0] > a[1]) && (a[1] > a[2]))
 	{
 		sa(stack_a);
 		rra(stack_a);
 		operations = 2;
 	}
-	/*case 5*/
 	else if ((a[1] > a[0]) && (a[1] > a[2]) && a[0] < a[2])
 	{
 		sa(stack_a);
@@ -44,4 +39,27 @@ int	sort_3_numbers(t_stack *stack_a)
 		operations = 2;
 	}
 	return (operations);
+}
+
+int	find_lowest_number(t_stack *stack_a)
+{
+	int	pos;
+	int	i;
+
+	pos = 100;
+	i = 0;
+	while (pos < stack_a->size)
+	{
+		while (i < stack_a->size)
+		{
+			if (pos == stack_a->array[i])
+			{
+				pos = i;
+				break;
+			}
+			i++;
+		}
+		pos--;
+	}
+	return (pos);
 }

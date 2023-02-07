@@ -6,7 +6,7 @@
 /*   By: tsodre-p <tsodre-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 15:06:32 by tsodre-p          #+#    #+#             */
-/*   Updated: 2023/02/07 15:35:33 by tsodre-p         ###   ########.fr       */
+/*   Updated: 2023/02/07 16:34:04 by tsodre-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -141,31 +141,7 @@ int	main(int argc, char **argv)
 		i++;
 		j++;
 	}
-	//acaba aqui a funcao, apagar a partir daqui
-	/*i = 1;
-	j = 0;
-	while (argv[i])
-	{
-		stack_b.size = fill_stack(argv[i], &stack_b, &stack_a);
-		i++;
-		j++;
-	}
-	j = 0;*/
-	print_stacks(stack_a, stack_b);
-	printf("%s", "\n\n");
-	//sa(&stack_a);
-	//sb(&stack_b);
-	//ss(&stack_a, &stack_b);
-	//pa(&stack_a, &stack_b);
-	//pb(&stack_a, &stack_b);
-	//ra(&stack_a);
-	//rb(&stack_b);
-	//rr(&stack_a, &stack_b);
-	//rra(&stack_a);
-	//rrb(&stack_b);
-	//rrr(&stack_a, &stack_b);
 	ft_printf("Operations: %d\n\n", sort_3_numbers(&stack_a));
-	print_stacks(stack_a, stack_b);
 	free(stack_a.array);
 	free(stack_b.array);
 	return (0);
