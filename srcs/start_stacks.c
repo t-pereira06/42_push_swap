@@ -6,7 +6,7 @@
 /*   By: tsodre-p <tsodre-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 15:06:32 by tsodre-p          #+#    #+#             */
-/*   Updated: 2023/02/06 14:06:07 by tsodre-p         ###   ########.fr       */
+/*   Updated: 2023/02/06 17:31:13 by tsodre-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ void	check_args(int argc, char **argv)
 	{
 		while (argv[i][j] != '\0')
 		{
-			if (!ft_isdigit(argv[i][j]) || (ft_atoi(argv[i]) > INT32_MAX))
+			if (!ft_isdigit(argv[i][j]) || (ft_atol(argv[i]) > INT32_MAX))
 			{
 				write(1, "Error!\n", 8);
 				exit (1);
@@ -89,17 +89,18 @@ void	check_args(int argc, char **argv)
 	}
 }
 
-int	check_stack(char *argv, t_stack stack_a)
+int	check_stack(char *argv, t_stack *stack_a, t_stack *stack_b)
 {
 	int	i;
 
 	i = 0;
-	while (i < stack_a.size)
+	while (i < stack_a->size)
 	{
-		if (ft_atoi(argv) == stack_a.array[i])
+		if (ft_atoi(argv) == stack_a->array[i])
 		{
 			write(1, "Error!\n", 8);
-			free(stack_a.array);
+			free(stack_a->array);
+			free(stack_b->array);
 			exit (1);
 		}
 		i++;
@@ -107,16 +108,16 @@ int	check_stack(char *argv, t_stack stack_a)
 	return (1);
 }
 
-int	fill_stack(char *argv, t_stack stack_a)
+int	fill_stack(char *argv, t_stack *stack_a, t_stack *stack_b)
 {
-	stack_a.size += 1;
-	if (check_stack(argv, stack_a) == 1)
+	stack_a->size += 1;
+	if (check_stack(argv, stack_a, stack_b) == 1)
 	{
-		stack_a.array[stack_a.size - 1] = ft_atoi(argv);
+		stack_a->array[stack_a->size - 1] = ft_atoi(argv);
 	}
 	else
-		stack_a.size -= 1;
-	return (stack_a.size);
+		stack_a->size -= 1;
+	return (stack_a->size);
 }
 
 int	main(int argc, char **argv)
@@ -128,15 +129,15 @@ int	main(int argc, char **argv)
 
 	i = 1;
 	j = 0;
+	check_args(argc, argv);
 	initialize_stacks(&stack_a, &stack_b);
 	stack_a.size = 0;
 	stack_a.array = (int *)malloc(sizeof(int) * (argc - 1));
 	stack_b.size = 0;
 	stack_b.array = (int *)malloc(sizeof(int) * (argc - 1));
-	check_args(argc, argv);
 	while (argv[i])
 	{
-		stack_a.size = fill_stack(argv[i], stack_a);
+		stack_a.size = fill_stack(argv[i], &stack_a, &stack_b);
 		i++;
 		j++;
 	}
@@ -152,7 +153,7 @@ int	main(int argc, char **argv)
 	j = 0;*/
 	print_stacks(stack_a, stack_b);
 	printf("%s", "\n\n");
-	sa(&stack_a);
+	//sa(&stack_a);
 	//sb(&stack_b);
 	//ss(&stack_a, &stack_b);
 	//pa(&stack_a, &stack_b);
@@ -163,7 +164,7 @@ int	main(int argc, char **argv)
 	//rra(&stack_a);
 	//rrb(&stack_b);
 	//rrr(&stack_a, &stack_b);
-	print_stacks(stack_a, stack_b);
+	//print_stacks(stack_a, stack_b);
 	free(stack_a.array);
 	free(stack_b.array);
 	return (0);

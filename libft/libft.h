@@ -6,7 +6,7 @@
 /*   By: tsodre-p <tsodre-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 15:47:45 by tsodre-p          #+#    #+#             */
-/*   Updated: 2023/01/25 12:03:42 by tsodre-p         ###   ########.fr       */
+/*   Updated: 2023/02/06 14:11:16 by tsodre-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,7 @@ char	**ft_split(char const *s, char c);
 char	*ft_itoa(int n);
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 int		ft_atoi(char *str);
+long	ft_atol(char *str);
 int		ft_isalnum(int a);
 int		ft_isalpha(int a);
 int		ft_isascii(int a);
