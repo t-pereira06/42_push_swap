@@ -6,7 +6,7 @@
 /*   By: tsodre-p <tsodre-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 15:06:32 by tsodre-p          #+#    #+#             */
-/*   Updated: 2023/02/06 17:31:13 by tsodre-p         ###   ########.fr       */
+/*   Updated: 2023/02/07 11:38:53 by tsodre-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -132,9 +132,9 @@ int	main(int argc, char **argv)
 	check_args(argc, argv);
 	initialize_stacks(&stack_a, &stack_b);
 	stack_a.size = 0;
-	stack_a.array = (int *)malloc(sizeof(int) * (argc - 1));
+	stack_a.array = ft_calloc((argc - 1), sizeof(int));
 	stack_b.size = 0;
-	stack_b.array = (int *)malloc(sizeof(int) * (argc - 1));
+	stack_b.array = ft_calloc((argc - 1), sizeof(int));
 	while (argv[i])
 	{
 		stack_a.size = fill_stack(argv[i], &stack_a, &stack_b);
@@ -146,7 +146,7 @@ int	main(int argc, char **argv)
 	j = 0;
 	while (argv[i])
 	{
-		stack_b.size = fill_stack(argv[i], stack_b);
+		stack_b.size = fill_stack(argv[i], &stack_b, &stack_a);
 		i++;
 		j++;
 	}
@@ -164,7 +164,8 @@ int	main(int argc, char **argv)
 	//rra(&stack_a);
 	//rrb(&stack_b);
 	//rrr(&stack_a, &stack_b);
-	//print_stacks(stack_a, stack_b);
+	ft_printf("Operations: %d\n\n", sort_3_num(&stack_a));
+	print_stacks(stack_a, stack_b);
 	free(stack_a.array);
 	free(stack_b.array);
 	return (0);

@@ -6,7 +6,7 @@
 /*   By: tsodre-p <tsodre-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 15:48:18 by tsodre-p          #+#    #+#             */
-/*   Updated: 2023/02/06 11:51:30 by tsodre-p         ###   ########.fr       */
+/*   Updated: 2023/02/07 11:35:08 by tsodre-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,5 +37,6 @@ void	rrb(t_stack *stack_b);
 void	rrr(t_stack *stack_a, t_stack *stack_b);
 int		pa(t_stack *stack_a, t_stack *stack_b);
 int		pb(t_stack *stack_a, t_stack *stack_b);
+int		sort_3_num(t_stack *stack_a);
 
 #endif
