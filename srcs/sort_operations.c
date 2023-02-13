@@ -12,6 +12,20 @@
 
 #include "../includes/push_swap.h"
 
+/*order 2 random numbers*/
+int	sort_2_numbers(t_stack *stack_a)
+{
+	int	operations;
+
+	operations = 0;
+	if (stack_a->array[1] < stack_a->array[0])
+	{
+		sa(stack_a);
+		operations++;
+	}
+	return (operations);
+}
+
 /*order 3 random numbers*/
 int	sort_3_numbers(t_stack *stack_a)
 {
@@ -41,7 +55,7 @@ int	sort_3_numbers(t_stack *stack_a)
 	return (operations);
 }
 
-int	find_lowest_number(t_stack *stack_a)
+/*int	find_lowest_number(t_stack *stack_a)
 {
 	int	pos;
 	int	i;
@@ -62,4 +76,62 @@ int	find_lowest_number(t_stack *stack_a)
 		pos--;
 	}
 	return (pos);
+}*/
+
+/*order as many numbers as you want*/
+void	best_move(t_stack *stack_a, t_stack *stack_b, int i)
+{
+	int	res;
+
+	res = 0;
+	res = stack_a->size / 2;
+	if (stack_a->array[i] > res)
+	{
+		while (!(stack_a->array[0] == stack_a->array[i]))
+		{
+			rra(stack_a);
+		}
+		pb(stack_a, stack_b);
+		rb(stack_b);
+	}
+	else if (stack_a->array[i] <= res)
+	{
+		while (stack_a->array[0] != stack_a->array[i])
+		{
+			ra(stack_a);
+		}
+		pb(stack_a, stack_b);
+		rb(stack_b);
+	}
 }
+
+int	sort_numbers(t_stack *stack_a, t_stack *stack_b)
+{
+	int	i;
+	int	num;
+	int	operations;
+
+	i = 0;
+	num = 1;
+	operations = 0;
+	while (num != stack_a->size)
+	{
+		while (stack_a->array[i] != num)
+		{
+			i++;
+		}
+		best_move(stack_a, stack_b, i);
+		i = 0;
+		num++;
+	}
+	while (stack_b->size != 0)
+	{
+		pa(stack_a, stack_b);
+		rra(stack_b);
+		operations += 2;
+		stack_b->size--;
+	}
+	return (operations);
+}
+
+//https://github.com/AdrianWR/push_swap ver este github

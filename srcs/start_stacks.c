@@ -141,7 +141,19 @@ int	main(int argc, char **argv)
 		i++;
 		j++;
 	}
-	ft_printf("Operations: %d\n\n", sort_3_numbers(&stack_a));
+	if (stack_a.size == 2)
+	{
+		ft_printf("Operations: %d\n\n", sort_2_numbers(&stack_a));
+	}
+	else if (stack_a.size == 3)
+	{
+		ft_printf("Operations: %d\n\n", sort_3_numbers(&stack_a));
+	}
+	else
+	{
+		ft_printf("Operations: %d\n\n", sort_numbers(&stack_a, &stack_b));
+	}
+	print_stacks(stack_a, stack_b);
 	free(stack_a.array);
 	free(stack_b.array);
 	return (0);

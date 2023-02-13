@@ -37,7 +37,8 @@ void	rrb(t_stack *stack_b);
 void	rrr(t_stack *stack_a, t_stack *stack_b);
 int		pa(t_stack *stack_a, t_stack *stack_b);
 int		pb(t_stack *stack_a, t_stack *stack_b);
-int		sort_3_numbers(t_stack *stack_a);
 int		sort_2_numbers(t_stack *stack_a);
+int		sort_3_numbers(t_stack *stack_a);
+int		sort_numbers(t_stack *stack_a, t_stack *stack_b);
 
 #endif
