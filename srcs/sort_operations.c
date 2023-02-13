@@ -134,4 +134,4 @@ int	sort_numbers(t_stack *stack_a, t_stack *stack_b)
 	return (operations);
 }
 
-//https://github.com/AdrianWR/push_swap ver este github
+//https://github.com/AdrianWR/push_swap ver logica explicada
