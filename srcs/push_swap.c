@@ -6,7 +6,7 @@
 /*   By: tsodre-p <tsodre-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 10:58:00 by tsodre-p          #+#    #+#             */
-/*   Updated: 2023/02/14 14:24:17 by tsodre-p         ###   ########.fr       */
+/*   Updated: 2023/02/14 14:27:43 by tsodre-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,7 +93,6 @@ int	main(int argc, char **argv)
 
 	i = 1;
 	j = 0;
-	//check_args(argc, argv);
 	initialize_stacks(&stack_a, &stack_b);
 	stack_a.size = 0;
 	stack_a.array = ft_calloc((argc - 1), sizeof(int));
