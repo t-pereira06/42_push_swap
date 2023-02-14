@@ -6,7 +6,7 @@
 /*   By: tsodre-p <tsodre-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 15:48:18 by tsodre-p          #+#    #+#             */
-/*   Updated: 2023/02/14 11:30:27 by tsodre-p         ###   ########.fr       */
+/*   Updated: 2023/02/14 14:15:36 by tsodre-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ void	rrr(t_stack *stack_a, t_stack *stack_b);
 void	initialize_stacks(t_stack *stack_a, t_stack *stack_b);
 int		check_stack(char *argv, t_stack *stack_a, t_stack *stack_b);
 int		fill_stack(char *argv, t_stack *stack_a, t_stack *stack_b);
+int		fill_stack_split(char *argv, t_stack *stack_a, t_stack *stack_b);
 int		pa(t_stack *stack_a, t_stack *stack_b);
 int		pb(t_stack *stack_a, t_stack *stack_b);
 int		sort_2_numbers(t_stack *stack_a);

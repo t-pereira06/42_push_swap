@@ -6,7 +6,7 @@
 /*   By: tsodre-p <tsodre-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 10:58:00 by tsodre-p          #+#    #+#             */
-/*   Updated: 2023/02/14 11:46:31 by tsodre-p         ###   ########.fr       */
+/*   Updated: 2023/02/14 14:24:17 by tsodre-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,40 @@ void	print_stacks(t_stack stack_a, t_stack stack_b)
 	}
 }
 
+void	call_sort_stacks(t_stack *stack_a, t_stack *stack_b)
+{
+	if (stack_a->size == 2)
+		ft_printf("Operations: %d\n\n", sort_2_numbers(stack_a));
+	else if (stack_a->size == 3)
+		ft_printf("Operations: %d\n\n", sort_3_numbers(stack_a));
+	else if (stack_a->size == 5)
+		ft_printf("Operations: %d\n\n", sort_5_numbers(stack_a, stack_b));
+	else
+		ft_printf("Operations: %d\n\n", sort_numbers(stack_a, stack_b));
+}
+
+void	args_handle(int argc, char **argv, t_stack *stack_a, t_stack *stack_b)
+{
+	int		i;
+	int		j;
+
+	i = 1;
+	j = 0;
+	if (argc > 2)
+	{
+		while (argv[i])
+		{
+			stack_a->size = fill_stack(argv[i], stack_a, stack_b);
+			i++;
+			j++;
+		}
+	}
+	else if (argc == 2)
+	{
+		stack_a->size = fill_stack_split(argv[1], stack_a, stack_b);
+	}
+}
+
 int	main(int argc, char **argv)
 {
 	t_stack	stack_a;
@@ -65,28 +99,8 @@ int	main(int argc, char **argv)
 	stack_a.array = ft_calloc((argc - 1), sizeof(int));
 	stack_b.size = 0;
 	stack_b.array = ft_calloc((argc - 1), sizeof(int));
-	while (argv[i])
-	{
-		stack_a.size = fill_stack(argv[i], &stack_a, &stack_b);
-		i++;
-		j++;
-	}
-	if (stack_a.size == 2)
-	{
-		ft_printf("Operations: %d\n\n", sort_2_numbers(&stack_a));
-	}
-	else if (stack_a.size == 3)
-	{
-		ft_printf("Operations: %d\n\n", sort_3_numbers(&stack_a));
-	}
-	else if (stack_a.size == 5)
-	{
-		ft_printf("Operations: %d\n\n", sort_5_numbers(&stack_a, &stack_b));
-	}
-	else
-	{
-		ft_printf("Operations: %d\n\n", sort_numbers(&stack_a, &stack_b));
-	}
+	args_handle(argc, argv, &stack_a, &stack_b);
+	call_sort_stacks(&stack_a, &stack_b);
 	print_stacks(stack_a, stack_b);
 	free(stack_a.array);
 	free(stack_b.array);
