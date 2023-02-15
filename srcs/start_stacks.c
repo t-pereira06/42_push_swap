@@ -6,7 +6,7 @@
 /*   By: tsodre-p <tsodre-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 15:06:32 by tsodre-p          #+#    #+#             */
-/*   Updated: 2023/02/14 14:17:58 by tsodre-p         ###   ########.fr       */
+/*   Updated: 2023/02/15 09:40:20 by tsodre-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,25 +72,16 @@ int	fill_stack(char *argv, t_stack *stack_a, t_stack *stack_b)
 int	fill_stack_split(char *argv, t_stack *stack_a, t_stack *stack_b)
 {
 	int	i;
+	int	stack_size;
 	char	**split;
 
 	i = 0;
+	stack_size = 0;
 	split = ft_split(&argv[i], ' ');
-	while (argv[i] != '\0')
+	while (split[i])
 	{
-		if (!ft_isdigit(argv[i]) || (ft_atol(argv) > INT32_MAX))
-		{
-			write(1, "Error!\n", 8);
-			exit (1);
-		}
+		stack_size = fill_stack(split[i], stack_a, stack_b);
 		i++;
 	}
-	stack_a->size += 1;
-	if (check_stack(argv, stack_a, stack_b) == 1)
-	{
-		stack_a->array[stack_a->size - 1] = ft_atoi(argv);
-	}
-	else
-		stack_a->size -= 1;
-	return (stack_a->size);
+	return (stack_size);
 }
