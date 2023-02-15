@@ -6,7 +6,7 @@
 /*   By: tsodre-p <tsodre-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 15:48:18 by tsodre-p          #+#    #+#             */
-/*   Updated: 2023/02/15 09:35:05 by tsodre-p         ###   ########.fr       */
+/*   Updated: 2023/02/15 11:00:58 by tsodre-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,12 @@ int		sort_2_numbers(t_stack *stack_a);
 int		sort_3_numbers(t_stack *stack_a);
 int		sort_5_numbers(t_stack *stack_a, t_stack *stack_b);
 int		sort_numbers(t_stack *stack_a, t_stack *stack_b);
+int		operations(t_stack *stack_a, t_stack *stack_b);
+int		op_2(t_stack *stack_a, t_stack *stack_b);
+int		op_3(t_stack *stack_a, t_stack *stack_b);
+int		op_4(t_stack *stack_a, t_stack *stack_b);
+int		op_5(t_stack *stack_a, t_stack *stack_b);
+int		op_6(t_stack *stack_a, t_stack *stack_b);
 
 
 #endif

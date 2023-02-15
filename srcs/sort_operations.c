@@ -6,7 +6,7 @@
 /*   By: tsodre-p <tsodre-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/07 11:03:22 by tsodre-p          #+#    #+#             */
-/*   Updated: 2023/02/14 09:42:23 by tsodre-p         ###   ########.fr       */
+/*   Updated: 2023/02/15 10:55:11 by tsodre-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,82 +57,23 @@ int	sort_3_numbers(t_stack *stack_a)
 
 int	sort_5_numbers(t_stack *stack_a, t_stack *stack_b)
 {
-	int	operations;
+	int	n_operations;
 	int	i;
 	int	*a;
 	int	*b;
 
-	operations = 0;
+	n_operations = 0;
 	i = 0;
 	a = stack_a->array;
 	b = stack_b->array;
 	pb(stack_a, stack_b);
 	pb(stack_a, stack_b);
-	operations += 2;
-	operations += sort_3_numbers(stack_a);
-	operations += sort_2_numbers(stack_b);
-	while (i < 2)
-	{
-		if (b[0] < a[0])
-		{
-			pa(stack_a, stack_b);
-			operations++;
-		}
-		else if(b[0] > a[0] && b[0] < a[1])
-		{
-			pa(stack_a, stack_b);
-			sa(stack_a);
-			operations += 2;
-		}
-		else if (b[0] > a[0] && b[0] > a[1] && b[0] < a[2])
-		{
-			rra(stack_a);
-			pa(stack_a, stack_b);
-			ra(stack_a);
-			ra(stack_a);
-			operations += 4;
-		}
-		else if (b[0] > a[0] && b[0] > a[1] && b[0] < a[2] && b[0] < a[3])
-		{
-			rra(stack_a);
-			pa(stack_a, stack_b);
-			ra(stack_a);
-			ra(stack_a);
-			operations += 4;
-		}
-		else if (b[0] > a[2])
-		{
-			pa(stack_a, stack_b);
-			ra(stack_a);
-			operations += 2;
-		}
-		i++;
-	}
-	return (operations);
+	n_operations += 2;
+	n_operations += sort_3_numbers(stack_a);
+	n_operations += sort_2_numbers(stack_b);
+	n_operations += operations(stack_a, stack_b);
+	return (n_operations);
 }
-
-/*int	find_lowest_number(t_stack *stack_a)
-{
-	int	pos;
-	int	i;
-
-	pos = 100;
-	i = 0;
-	while (pos < stack_a->size)
-	{
-		while (i < stack_a->size)
-		{
-			if (pos == stack_a->array[i])
-			{
-				pos = i;
-				break;
-			}
-			i++;
-		}
-		pos--;
-	}
-	return (pos);
-}*/
 
 /*order as many numbers as you want*/
 void	best_move(t_stack *stack_a, t_stack *stack_b, int i)
