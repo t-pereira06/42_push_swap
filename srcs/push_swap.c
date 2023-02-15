@@ -6,11 +6,12 @@
 /*   By: tsodre-p <tsodre-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 10:58:00 by tsodre-p          #+#    #+#             */
-/*   Updated: 2023/02/15 09:34:43 by tsodre-p         ###   ########.fr       */
+/*   Updated: 2023/02/15 15:59:09 by tsodre-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
+
 void	print_stacks(t_stack stack_a, t_stack stack_b)
 {
 	int	j;
@@ -22,10 +23,10 @@ void	print_stacks(t_stack stack_a, t_stack stack_b)
 	printf("%s", "Array A: ");
 	while (j < stack_a.size)
 	{
-		if(stack_a.array[0] == 0)
+		if (stack_a.array[0] == 0)
 		{
 			printf("%s", "(null)");
-			break;
+			break ;
 		}
 		printf("%d", stack_a.array[j]);
 		printf("%s", "|");
@@ -39,10 +40,10 @@ void	print_stacks(t_stack stack_a, t_stack stack_b)
 	printf("%s", "Array B: ");
 	while (j < stack_b.size)
 	{
-		if(stack_b.array[0] == 0)
+		if (stack_b.array[0] == 0)
 		{
 			printf("%s", "(null)");
-			break;
+			break ;
 		}
 		printf("%d", stack_b.array[j]);
 		printf("%s", "|");
@@ -53,13 +54,13 @@ void	print_stacks(t_stack stack_a, t_stack stack_b)
 void	call_sort_stacks(t_stack *stack_a, t_stack *stack_b)
 {
 	if (stack_a->size == 2)
-		ft_printf("Operations: %d\n\n", sort_2_numbers(stack_a));
+		sort_2_numbers(stack_a);
 	else if (stack_a->size == 3)
-		ft_printf("Operations: %d\n\n", sort_3_numbers(stack_a));
+		sort_3_numbers(stack_a);
 	else if (stack_a->size == 5)
-		ft_printf("Operations: %d\n\n", sort_5_numbers(stack_a, stack_b));
+		sort_5_numbers(stack_a, stack_b);
 	else
-		ft_printf("Operations: %d\n\n", sort_numbers(stack_a, stack_b));
+		sort_numbers(stack_a, stack_b);
 }
 
 void	args_handle(int argc, char **argv, t_stack *stack_a, t_stack *stack_b)
@@ -88,11 +89,7 @@ int	main(int argc, char **argv)
 {
 	t_stack	stack_a;
 	t_stack	stack_b;
-	int		i;
-	int		j;
 
-	i = 1;
-	j = 0;
 	initialize_stacks(&stack_a, &stack_b);
 	stack_a.size = 0;
 	stack_a.array = ft_calloc((argc - 1), sizeof(int));

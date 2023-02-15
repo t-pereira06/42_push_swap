@@ -6,7 +6,7 @@
 /*   By: tsodre-p <tsodre-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/07 10:52:15 by tsodre-p          #+#    #+#             */
-/*   Updated: 2023/02/07 11:43:01 by tsodre-p         ###   ########.fr       */
+/*   Updated: 2023/02/15 11:25:43 by tsodre-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,4 +46,3 @@ void	ss(t_stack *stack_a, t_stack *stack_b)
 	sa(stack_a);
 	sb(stack_b);
 }
-

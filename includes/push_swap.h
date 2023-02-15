@@ -6,7 +6,7 @@
 /*   By: tsodre-p <tsodre-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 15:48:18 by tsodre-p          #+#    #+#             */
-/*   Updated: 2023/02/15 11:00:58 by tsodre-p         ###   ########.fr       */
+/*   Updated: 2023/02/15 15:57:38 by tsodre-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,8 @@ typedef struct stack
 void	sa(t_stack *stack_a);
 void	sb(t_stack *stack_b);
 void	ss(t_stack *stack_a, t_stack *stack_b);
+void	pa(t_stack *stack_a, t_stack *stack_b);
+void	pb(t_stack *stack_a, t_stack *stack_b);
 void	ra(t_stack *stack_a);
 void	rb(t_stack *stack_b);
 void	rr(t_stack *stack_a, t_stack *stack_b);
@@ -39,18 +41,14 @@ void	initialize_stacks(t_stack *stack_a, t_stack *stack_b);
 int		check_stack(char *argv, t_stack *stack_a, t_stack *stack_b);
 int		fill_stack(char *argv, t_stack *stack_a, t_stack *stack_b);
 int		fill_stack_split(char *argv, t_stack *stack_a, t_stack *stack_b);
-int		pa(t_stack *stack_a, t_stack *stack_b);
-int		pb(t_stack *stack_a, t_stack *stack_b);
-int		sort_2_numbers(t_stack *stack_a);
-int		sort_3_numbers(t_stack *stack_a);
-int		sort_5_numbers(t_stack *stack_a, t_stack *stack_b);
-int		sort_numbers(t_stack *stack_a, t_stack *stack_b);
-int		operations(t_stack *stack_a, t_stack *stack_b);
-int		op_2(t_stack *stack_a, t_stack *stack_b);
-int		op_3(t_stack *stack_a, t_stack *stack_b);
-int		op_4(t_stack *stack_a, t_stack *stack_b);
-int		op_5(t_stack *stack_a, t_stack *stack_b);
-int		op_6(t_stack *stack_a, t_stack *stack_b);
-
+void	sort_2_numbers(t_stack *stack_a);
+void	sort_3_numbers(t_stack *stack_a);
+void	sort_5_numbers(t_stack *stack_a, t_stack *stack_b);
+void	sort_numbers(t_stack *stack_a, t_stack *stack_b);
+void	operations(t_stack *stack_a, t_stack *stack_b);
+void	op_3(t_stack *stack_a, t_stack *stack_b);
+void	op_4(t_stack *stack_a, t_stack *stack_b);
+void	op_5(t_stack *stack_a, t_stack *stack_b);
+void	op_6(t_stack *stack_a, t_stack *stack_b);
 
 #endif

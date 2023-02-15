@@ -6,7 +6,7 @@
 /*   By: tsodre-p <tsodre-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 15:06:32 by tsodre-p          #+#    #+#             */
-/*   Updated: 2023/02/15 10:01:46 by tsodre-p         ###   ########.fr       */
+/*   Updated: 2023/02/15 11:28:14 by tsodre-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,9 +71,9 @@ int	fill_stack(char *argv, t_stack *stack_a, t_stack *stack_b)
 
 int	fill_stack_split(char *argv, t_stack *stack_a, t_stack *stack_b)
 {
-	int	i;
-	int	stack_size;
 	char	**split;
+	int		i;
+	int		stack_size;
 
 	i = 0;
 	stack_size = 0;
