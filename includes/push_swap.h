@@ -6,7 +6,7 @@
 /*   By: tsodre-p <tsodre-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 15:48:18 by tsodre-p          #+#    #+#             */
-/*   Updated: 2023/02/15 15:57:38 by tsodre-p         ###   ########.fr       */
+/*   Updated: 2023/02/16 13:51:28 by tsodre-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,8 @@ typedef struct stack
 void	sa(t_stack *stack_a);
 void	sb(t_stack *stack_b);
 void	ss(t_stack *stack_a, t_stack *stack_b);
-void	pa(t_stack *stack_a, t_stack *stack_b);
-void	pb(t_stack *stack_a, t_stack *stack_b);
+int		pa(t_stack *stack_a, t_stack *stack_b);
+int		pb(t_stack *stack_a, t_stack *stack_b);
 void	ra(t_stack *stack_a);
 void	rb(t_stack *stack_b);
 void	rr(t_stack *stack_a, t_stack *stack_b);
@@ -44,11 +44,16 @@ int		fill_stack_split(char *argv, t_stack *stack_a, t_stack *stack_b);
 void	sort_2_numbers(t_stack *stack_a);
 void	sort_3_numbers(t_stack *stack_a);
 void	sort_5_numbers(t_stack *stack_a, t_stack *stack_b);
-void	sort_numbers(t_stack *stack_a, t_stack *stack_b);
+void	sort_rest_numbers(t_stack *stack_a, t_stack *stack_b);
 void	operations(t_stack *stack_a, t_stack *stack_b);
 void	op_3(t_stack *stack_a, t_stack *stack_b);
 void	op_4(t_stack *stack_a, t_stack *stack_b);
 void	op_5(t_stack *stack_a, t_stack *stack_b);
 void	op_6(t_stack *stack_a, t_stack *stack_b);
+void	index_stack_temp(t_stack *stack_a);
+int		get_max_value(t_stack *stack_a);
+int		stack_is_sorted(t_stack *stack_a);
+int		get_mid_stack(t_stack *stack_a);
+void	verify_next_index(t_stack *stack_a, int i);
 
 #endif

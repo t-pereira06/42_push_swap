@@ -6,7 +6,7 @@
 /*   By: tsodre-p <tsodre-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 10:58:00 by tsodre-p          #+#    #+#             */
-/*   Updated: 2023/02/15 15:59:09 by tsodre-p         ###   ########.fr       */
+/*   Updated: 2023/02/16 13:27:57 by tsodre-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ void	call_sort_stacks(t_stack *stack_a, t_stack *stack_b)
 	else if (stack_a->size == 5)
 		sort_5_numbers(stack_a, stack_b);
 	else
-		sort_numbers(stack_a, stack_b);
+		sort_rest_numbers(stack_a, stack_b);
 }
 
 void	args_handle(int argc, char **argv, t_stack *stack_a, t_stack *stack_b)
@@ -97,7 +97,7 @@ int	main(int argc, char **argv)
 	stack_b.array = ft_calloc((argc - 1), sizeof(int));
 	args_handle(argc, argv, &stack_a, &stack_b);
 	call_sort_stacks(&stack_a, &stack_b);
-	print_stacks(stack_a, stack_b);
+	//print_stacks(stack_a, stack_b);
 	free(stack_a.array);
 	free(stack_b.array);
 	return (0);

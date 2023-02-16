@@ -6,7 +6,7 @@
 #    By: tsodre-p <tsodre-p@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/06 14:07:55 by tsodre-p          #+#    #+#              #
-#    Updated: 2023/02/15 11:02:20 by tsodre-p         ###   ########.fr        #
+#    Updated: 2023/02/16 13:48:56 by tsodre-p         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,10 +19,14 @@ RM = rm -f
 CFLAGS = -Wall -Wextra -Werror
 AR = ar rcs
 
-FILES = srcs/push_swap.c srcs/start_stacks.c srcs/swap_operations.c srcs/push_operations.c srcs/rotate_operations.c srcs/rev_rotate_operations.c srcs/sort_operations.c srcs/sort_numbers_utils.c srcs/sort_operations_utils.c
+FILES = srcs/push_swap.c srcs/start_stacks.c srcs/swap_operations.c srcs/push_operations.c \
+		srcs/rotate_operations.c srcs/rev_rotate_operations.c srcs/sort_operations.c srcs/sort_numbers_utils.c \
+		srcs/sort_operations_utils.c srcs/indexing.c srcs/sort_rest_numbers_utils.c
 
 OBJ = $(FILES:%.c=%.o)
-FILES_O = srcs/push_swap.o srcs/start_stacks.o srcs/swap_operations.o srcs/push_operations.o srcs/rotate_operations.o srcs/rev_rotate_operations.o srcs/sort_operations.o srcs/sort_numbers_utils.o srcs/sort_operations_utils.o
+FILES_O = srcs/push_swap.o srcs/start_stacks.o srcs/swap_operations.o srcs/push_operations.o \
+			srcs/rotate_operations.o srcs/rev_rotate_operations.o srcs/sort_operations.o srcs/sort_numbers_utils.o \
+			srcs/sort_operations_utils.o srcs/indexing.o srcs/sort_rest_numbers_utils.o
 all: $(NAME)
 
 $(LIBFT):

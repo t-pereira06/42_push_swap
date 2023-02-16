@@ -6,7 +6,7 @@
 /*   By: tsodre-p <tsodre-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/07 11:03:22 by tsodre-p          #+#    #+#             */
-/*   Updated: 2023/02/15 15:18:57 by tsodre-p         ###   ########.fr       */
+/*   Updated: 2023/02/16 16:32:09 by tsodre-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,59 +52,51 @@ void	sort_5_numbers(t_stack *stack_a, t_stack *stack_b)
 	operations(stack_a, stack_b);
 }
 
-/*order as many numbers as you want*/
-void	best_move(t_stack *stack_a, t_stack *stack_b, int index)
-{
-	int	res;
-	int	num;
-
-	res = 0;
-	num = stack_a->array[index];
-	res = stack_a->size / 2;
-	if (index > res)
-	{
-		while (stack_a->array[0] != num)
-		{
-			rra(stack_a);
-		}
-		pb(stack_a, stack_b);
-	}
-	else if (index <= res)
-	{
-		while (stack_a->array[0] != num)
-		{
-			ra(stack_a);
-		}
-		pb(stack_a, stack_b);
-	}
-}
-
-void	sort_numbers(t_stack *stack_a, t_stack *stack_b)
+void	sort_rest_numbers(t_stack *stack_a, t_stack *stack_b)
 {
 	int	i;
-	int	index;
+	int	j;
+	int	max_bits;
+	int	max_number;
+	int	size_a;
+	int	size_b;
 
-	index = 0;
+	j = 0;
 	i = 0;
-	best_move(stack_a, stack_b, index);
-	while (stack_a->size != 0)
+	max_bits = 0;
+	index_stack_temp(stack_a);
+	max_number = get_max_value(stack_a);
+	while((max_number >> max_bits) != 0)
+		max_bits++;
+	while(i <= max_bits)
 	{
-		while (i < stack_a->size)
+		size_a = stack_a->size;
+		j = 0;
+		while(j < size_a)
 		{
-			if (stack_a->array[i] < stack_a->array[i + 1])
+			if(((stack_a->array[0] >> i) & 1) == 0)
+				pb(stack_a, stack_b);
+			else
 			{
-				index = i + 1;
+				//verify_next_index(stack_a, i);
+				//pb(stack_a, stack_b);
+				ra(stack_a);
 			}
-			i++;
+			j++;
 		}
-		best_move(stack_a, stack_b, index);
-		stack_a->size -= 1;
-	}
-	while (stack_b->size != 0)
-	{
-		pa(stack_a, stack_b);
-		stack_a->size++;
-		stack_b->size--;
+		size_b = stack_b->size;
+		while(size_b > 0)
+		{
+			if (((stack_a->array[0] >> (i - 1)) & 1) == 0)
+				rrb(stack_b);
+			else
+			{
+				pa(stack_a, stack_b);
+				size_b--;
+			}
+		}
+		if(stack_is_sorted(stack_a) == 1)
+			break;
+		i++;
 	}
 }
-//https://github.com/AdrianWR/push_swap ver logica explicada

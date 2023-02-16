@@ -6,13 +6,13 @@
 /*   By: tsodre-p <tsodre-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/07 10:52:12 by tsodre-p          #+#    #+#             */
-/*   Updated: 2023/02/15 15:56:24 by tsodre-p         ###   ########.fr       */
+/*   Updated: 2023/02/16 12:54:19 by tsodre-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-/*void	fill_stack_a(t_stack *stack_a)
+void	fill_stack_a(t_stack *stack_a)
 {
 	int	*tmp;
 	int	i;
@@ -34,9 +34,9 @@
 		i++;
 	}
 	free(tmp);
-}*/
+}
 
-/*void	fill_stack_b(t_stack *stack_b)
+void	fill_stack_b(t_stack *stack_b)
 {
 	int	*tmp;
 	int	i;
@@ -58,10 +58,10 @@
 		i++;
 	}
 	free(tmp);
-}*/
+}
 
 /*Send top of B to top of A*/
-/*int	pa(t_stack *stack_a, t_stack *stack_b)
+int	pa(t_stack *stack_a, t_stack *stack_b)
 {
 	int	*tmp;
 	int	i;
@@ -88,10 +88,10 @@
 	fill_stack_b(stack_b);
 	free(tmp);
 	return (ft_printf("%s", "pa\n"));
-}*/
+}
 
 /*Send top of A to top of B*/
-/*int	pb(t_stack *stack_a, t_stack *stack_b)
+int	pb(t_stack *stack_a, t_stack *stack_b)
 {
 	int	*tmp;
 	int	i;
@@ -118,54 +118,4 @@
 	fill_stack_a(stack_a);
 	free(tmp);
 	return (ft_printf("%s", "pb\n"));
-}*/
-
-void	pa(t_stack *stack_a, t_stack *stack_b)
-{
-	int	i;
-
-	i = stack_a->size;
-	stack_a->size++;
-	if (stack_a->size > 1)
-	{
-		while (i > 0)
-		{
-			stack_a->array[i] = stack_a->array[i - 1];
-			i--;
-		}
-	}
-	i = 0;
-	stack_a->array[i] = stack_b->array[i];
-	while (i <= stack_b->size)
-	{
-		stack_b->array[i] = stack_b->array[i + 1];
-		i++;
-	}
-	stack_b->size--;
-	ft_printf("%s\n", "pa");
-}
-
-void	pb(t_stack *stack_a, t_stack *stack_b)
-{
-	int	i;
-
-	i = stack_b->size;
-	stack_b->size++;
-	if (stack_b->size > 1)
-	{
-		while (i > 0)
-		{
-			stack_b->array[i] = stack_b->array[i - 1];
-			i--;
-		}
-	}
-	i = 0;
-	stack_b->array[i] = stack_a->array[i];
-	while (i <= stack_a->size)
-	{
-		stack_a->array[i] = stack_a->array[i + 1];
-		i++;
-	}
-	stack_a->size--;
-	ft_printf("%s\n", "pb");
 }
