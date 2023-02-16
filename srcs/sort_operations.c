@@ -6,7 +6,7 @@
 /*   By: tsodre-p <tsodre-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/07 11:03:22 by tsodre-p          #+#    #+#             */
-/*   Updated: 2023/02/16 16:33:41 by tsodre-p         ###   ########.fr       */
+/*   Updated: 2023/02/16 17:05:53 by tsodre-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,13 +87,8 @@ void	sort_rest_numbers(t_stack *stack_a, t_stack *stack_b)
 		size_b = stack_b->size;
 		while(size_b > 0)
 		{
-			if (((stack_a->array[0] >> (i - 1)) & 1) == 0)
-				rrb(stack_b);
-			else
-			{
-				pa(stack_a, stack_b);
-				size_b--;
-			}
+			pa(stack_a, stack_b);
+			size_b--;
 		}
 		if(stack_is_sorted(stack_a) == 1)
 			break;
