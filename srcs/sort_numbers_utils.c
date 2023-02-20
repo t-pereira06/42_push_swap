@@ -6,7 +6,7 @@
 /*   By: tsodre-p <tsodre-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/15 10:45:38 by tsodre-p          #+#    #+#             */
-/*   Updated: 2023/02/20 11:39:11 by tsodre-p         ###   ########.fr       */
+/*   Updated: 2023/02/20 13:30:37 by tsodre-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,8 @@ void	operations(t_stack *stack_a, t_stack *stack_b)
 	b = stack_b->array;
 	while (i <= 1)
 	{
+		a = stack_a->array;
+		b = stack_b->array;
 		if (b[0] < a[0])
 			op_1(stack_a, stack_b);
 		else if (b[0] > a[0] && b[0] < a[1])
