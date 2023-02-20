@@ -6,23 +6,26 @@
 /*   By: tsodre-p <tsodre-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/15 10:45:38 by tsodre-p          #+#    #+#             */
-/*   Updated: 2023/02/15 14:21:28 by tsodre-p         ###   ########.fr       */
+/*   Updated: 2023/02/20 11:39:11 by tsodre-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
+/*operation 1*/
 void	op_1(t_stack *stack_a, t_stack *stack_b)
 {
 	pa(stack_a, stack_b);
 }
 
+/*operation 2*/
 void	op_2(t_stack *stack_a, t_stack *stack_b)
 {
 	pa(stack_a, stack_b);
 	sa(stack_a);
 }
 
+/*call functions to organize stack_a if sort_5_numbers is called*/
 void	operations(t_stack *stack_a, t_stack *stack_b)
 {
 	int	i;
@@ -32,7 +35,7 @@ void	operations(t_stack *stack_a, t_stack *stack_b)
 	i = 0;
 	a = stack_a->array;
 	b = stack_b->array;
-	while (i < 2)
+	while (i <= 1)
 	{
 		if (b[0] < a[0])
 			op_1(stack_a, stack_b);

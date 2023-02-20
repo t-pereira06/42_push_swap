@@ -6,19 +6,20 @@
 /*   By: tsodre-p <tsodre-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 09:54:39 by tsodre-p          #+#    #+#             */
-/*   Updated: 2023/02/16 12:04:05 by tsodre-p         ###   ########.fr       */
+/*   Updated: 2023/02/20 11:35:22 by tsodre-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
+/*get biggest value int stack_a*/
 int	get_max_value(t_stack *stack_a)
 {
 	int	i;
 	int	temp;
 
 	i = 0;
-	while(i < stack_a->size - 1)
+	while (i < stack_a->size - 1)
 	{
 		if (stack_a->array[i] < stack_a->array[i + 1])
 		{
@@ -29,6 +30,7 @@ int	get_max_value(t_stack *stack_a)
 	return (temp);
 }
 
+/*indexing stack_a*/
 void	convert_to_index(t_stack *stack_a, int *temp)
 {
 	int	i;
@@ -52,6 +54,7 @@ void	convert_to_index(t_stack *stack_a, int *temp)
 	}
 }
 
+/*prepare addicional stack to call convert_to_index*/
 void	index_stack_temp(t_stack *stack_a)
 {
 	int	*temp;
@@ -61,9 +64,9 @@ void	index_stack_temp(t_stack *stack_a)
 	i = 0;
 	temp = ft_calloc(sizeof(int), stack_a->size);
 	temp = ft_memcpy(temp, stack_a->array, sizeof(int) * stack_a->size);
-	while(i < stack_a->size - 1)
+	while (i < stack_a->size - 1)
 	{
-		if(temp[i] > temp[i + 1])
+		if (temp[i] > temp[i + 1])
 		{
 			temp_num = temp[i];
 			temp[i] = temp[i + 1];
@@ -77,6 +80,7 @@ void	index_stack_temp(t_stack *stack_a)
 	free(temp);
 }
 
+/*check if stack is sorted*/
 int	stack_is_sorted(t_stack *stack_a)
 {
 	int	i;
@@ -85,16 +89,8 @@ int	stack_is_sorted(t_stack *stack_a)
 	while (i < (stack_a->size - 1))
 	{
 		if (stack_a->array[i] > stack_a->array[i + 1])
-			return(0);
+			return (0);
 		i++;
 	}
 	return (1);
-}
-
-int	get_mid_stack(t_stack *stack_a)
-{
-	int	a;
-
-	a = stack_a->size / 2;
-	return (a);
 }

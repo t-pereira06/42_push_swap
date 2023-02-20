@@ -6,7 +6,7 @@
 /*   By: tsodre-p <tsodre-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/07 11:03:22 by tsodre-p          #+#    #+#             */
-/*   Updated: 2023/02/16 17:05:53 by tsodre-p         ###   ########.fr       */
+/*   Updated: 2023/02/20 11:33:20 by tsodre-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ void	sort_3_numbers(t_stack *stack_a)
 	}
 }
 
+/*order 5 random numbers*/
 void	sort_5_numbers(t_stack *stack_a, t_stack *stack_b)
 {
 	pb(stack_a, stack_b);
@@ -52,46 +53,17 @@ void	sort_5_numbers(t_stack *stack_a, t_stack *stack_b)
 	operations(stack_a, stack_b);
 }
 
+/*order x random numbers*/
 void	sort_rest_numbers(t_stack *stack_a, t_stack *stack_b)
 {
-	int	i;
-	int	j;
 	int	max_bits;
 	int	max_number;
-	int	size_a;
-	int	size_b;
 
-	j = 0;
-	i = 0;
 	max_bits = 0;
+	max_number = 0;
 	index_stack_temp(stack_a);
 	max_number = get_max_value(stack_a);
-	while((max_number >> max_bits) != 0)
+	while ((max_number >> max_bits) != 0)
 		max_bits++;
-	while(i <= max_bits)
-	{
-		size_a = stack_a->size;
-		j = 0;
-		while(j < size_a)
-		{
-			if(((stack_a->array[0] >> i) & 1) == 0)
-				pb(stack_a, stack_b);
-			else
-			{
-				//verify_next_index(stack_a, i);
-				//pb(stack_a, stack_b);
-				ra(stack_a);
-			}
-			j++;
-		}
-		size_b = stack_b->size;
-		while(size_b > 0)
-		{
-			pa(stack_a, stack_b);
-			size_b--;
-		}
-		if(stack_is_sorted(stack_a) == 1)
-			break;
-		i++;
-	}
+	do_sort(stack_a, stack_b, max_bits);
 }

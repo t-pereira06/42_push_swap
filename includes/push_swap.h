@@ -6,7 +6,7 @@
 /*   By: tsodre-p <tsodre-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 15:48:18 by tsodre-p          #+#    #+#             */
-/*   Updated: 2023/02/16 13:51:28 by tsodre-p         ###   ########.fr       */
+/*   Updated: 2023/02/20 11:27:43 by tsodre-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,6 @@ void	op_6(t_stack *stack_a, t_stack *stack_b);
 void	index_stack_temp(t_stack *stack_a);
 int		get_max_value(t_stack *stack_a);
 int		stack_is_sorted(t_stack *stack_a);
-int		get_mid_stack(t_stack *stack_a);
-void	verify_next_index(t_stack *stack_a, int i);
+void	do_sort(t_stack *stack_a, t_stack *stack_b, int max_bits);
 
 #endif

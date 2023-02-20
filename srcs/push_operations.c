@@ -6,12 +6,13 @@
 /*   By: tsodre-p <tsodre-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/07 10:52:12 by tsodre-p          #+#    #+#             */
-/*   Updated: 2023/02/16 12:54:19 by tsodre-p         ###   ########.fr       */
+/*   Updated: 2023/02/20 11:35:50 by tsodre-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
+/*fill_stack_a after doing pb*/
 void	fill_stack_a(t_stack *stack_a)
 {
 	int	*tmp;
@@ -36,6 +37,7 @@ void	fill_stack_a(t_stack *stack_a)
 	free(tmp);
 }
 
+/*fill_stack_a after doing pa*/
 void	fill_stack_b(t_stack *stack_b)
 {
 	int	*tmp;

@@ -6,12 +6,13 @@
 /*   By: tsodre-p <tsodre-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 10:58:00 by tsodre-p          #+#    #+#             */
-/*   Updated: 2023/02/16 13:27:57 by tsodre-p         ###   ########.fr       */
+/*   Updated: 2023/02/20 11:37:20 by tsodre-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
+/*print stacks for testing purposes*/
 void	print_stacks(t_stack stack_a, t_stack stack_b)
 {
 	int	j;
@@ -51,6 +52,7 @@ void	print_stacks(t_stack stack_a, t_stack stack_b)
 	}
 }
 
+/*if x arguments, call different functions*/
 void	call_sort_stacks(t_stack *stack_a, t_stack *stack_b)
 {
 	if (stack_a->size == 2)
@@ -63,6 +65,7 @@ void	call_sort_stacks(t_stack *stack_a, t_stack *stack_b)
 		sort_rest_numbers(stack_a, stack_b);
 }
 
+/*check how many args are passed*/
 void	args_handle(int argc, char **argv, t_stack *stack_a, t_stack *stack_b)
 {
 	int		i;

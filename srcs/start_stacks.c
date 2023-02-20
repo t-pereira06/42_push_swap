@@ -6,7 +6,7 @@
 /*   By: tsodre-p <tsodre-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 15:06:32 by tsodre-p          #+#    #+#             */
-/*   Updated: 2023/02/15 11:28:14 by tsodre-p         ###   ########.fr       */
+/*   Updated: 2023/02/20 11:42:43 by tsodre-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 counting the size of it and fill it in the struct field size*/
 #include "../includes/push_swap.h"
 
+/*initialize stacks with 0*/
 void	initialize_stacks(t_stack *stack_a, t_stack *stack_b)
 {
 	stack_a->size = 0;
@@ -22,6 +23,7 @@ void	initialize_stacks(t_stack *stack_a, t_stack *stack_b)
 	stack_b->array = 0;
 }
 
+/*check if number already exists in stack_a*/
 int	check_stack(char *argv, t_stack *stack_a, t_stack *stack_b)
 {
 	int	i;
@@ -41,6 +43,7 @@ int	check_stack(char *argv, t_stack *stack_a, t_stack *stack_b)
 	return (1);
 }
 
+/*fill stack with arguments passed*/
 int	fill_stack(char *argv, t_stack *stack_a, t_stack *stack_b)
 {
 	int	i;
@@ -69,6 +72,8 @@ int	fill_stack(char *argv, t_stack *stack_a, t_stack *stack_b)
 	return (stack_a->size);
 }
 
+/*fill stack with arguments passed if there is only 1
+string with numbers, using ft_split to get the args*/
 int	fill_stack_split(char *argv, t_stack *stack_a, t_stack *stack_b)
 {
 	char	**split;
