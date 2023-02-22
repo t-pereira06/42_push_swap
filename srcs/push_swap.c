@@ -6,7 +6,7 @@
 /*   By: tsodre-p <tsodre-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 10:58:00 by tsodre-p          #+#    #+#             */
-/*   Updated: 2023/02/20 14:58:30 by tsodre-p         ###   ########.fr       */
+/*   Updated: 2023/02/22 10:49:03 by tsodre-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,17 +52,27 @@ void	print_stacks(t_stack stack_a, t_stack stack_b)
 	}
 }
 
-/*if x arguments, call different functions*/
+/*if x arguments, call different functions
+if stack is sorted, nothing is done*/
 void	call_sort_stacks(t_stack *stack_a, t_stack *stack_b)
 {
-	if (stack_a->size == 2)
-		sort_2_numbers(stack_a);
-	else if (stack_a->size == 3)
-		sort_3_numbers(stack_a);
-	else if (stack_a->size == 5)
-		sort_5_numbers(stack_a, stack_b);
+	if (stack_is_sorted(stack_a))
+	{
+		free(stack_a->array);
+		free(stack_b->array);
+		exit(1);
+	}
 	else
-		sort_rest_numbers(stack_a, stack_b);
+	{
+		if (stack_a->size == 2)
+			sort_2_numbers(stack_a);
+		else if (stack_a->size == 3)
+			sort_3_numbers(stack_a);
+		else if (stack_a->size == 5)
+			sort_5_numbers(stack_a, stack_b);
+		else
+			sort_rest_numbers(stack_a, stack_b);
+	}
 }
 
 /*check how many args are passed*/
