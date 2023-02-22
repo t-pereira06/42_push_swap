@@ -6,7 +6,7 @@
 /*   By: tsodre-p <tsodre-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/07 10:52:12 by tsodre-p          #+#    #+#             */
-/*   Updated: 2023/02/20 15:03:07 by tsodre-p         ###   ########.fr       */
+/*   Updated: 2023/02/22 10:55:09 by tsodre-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,6 @@ void	fill_stack_a(t_stack *stack_a)
 		tmp[i] = stack_a->array[i];
 		i++;
 	}
-	free(stack_a->array);
-	stack_a->array = (int *)malloc(sizeof(int) * (stack_a->size - 1));
 	stack_a->size -= 1;
 	i = 1;
 	while (i <= stack_a->size)
@@ -50,8 +48,6 @@ void	fill_stack_b(t_stack *stack_b)
 		tmp[i] = stack_b->array[i];
 		i++;
 	}
-	free(stack_b->array);
-	stack_b->array = (int *)malloc(sizeof(int) * (stack_b->size - 1));
 	stack_b->size -= 1;
 	i = 1;
 	while (i <= stack_b->size)
@@ -77,8 +73,6 @@ int	pa(t_stack *stack_a, t_stack *stack_b)
 		tmp[i] = stack_a->array[i];
 		i++;
 	}
-	free(stack_a->array);
-	stack_a->array = (int *)malloc(sizeof(int) * (stack_a->size + 1));
 	stack_a->array[0] = stack_b->array[0];
 	stack_a->size += 1;
 	i = 1;
@@ -107,8 +101,6 @@ int	pb(t_stack *stack_a, t_stack *stack_b)
 		tmp[i] = stack_b->array[i];
 		i++;
 	}
-	free(stack_b->array);
-	stack_b->array = (int *)malloc(sizeof(int) * (stack_b->size + 1));
 	stack_b->array[0] = stack_a->array[0];
 	stack_b->size += 1;
 	i = 1;

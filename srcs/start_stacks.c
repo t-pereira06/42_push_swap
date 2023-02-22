@@ -6,7 +6,7 @@
 /*   By: tsodre-p <tsodre-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 15:06:32 by tsodre-p          #+#    #+#             */
-/*   Updated: 2023/02/22 10:30:43 by tsodre-p         ###   ########.fr       */
+/*   Updated: 2023/02/22 12:50:17 by tsodre-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ int	check_stack(char *argv, t_stack *stack_a, t_stack *stack_b)
 		if (ft_atoi(argv) == stack_a->array[i])
 		{
 			write(2, "Error\n", 6);
+			//write(2, "Hey", 3);
 			free(stack_a->array);
 			free(stack_b->array);
 			exit (1);
@@ -72,6 +73,22 @@ int	fill_stack(char *argv, t_stack *stack_a, t_stack *stack_b)
 	return (stack_a->size);
 }
 
+/*free the **split used to pass the
+arguments to stack*/
+void	free_split(char **stack, int i)
+{
+	int	j;
+
+	j = 0;
+	while (i > 0)
+	{
+		free(stack[j]);
+		i--;
+		j++;
+	}
+	free(stack);
+}
+
 /*fill stack with arguments passed if there is only 1
 string with numbers, using ft_split to get the args*/
 int	fill_stack_split(char *argv, t_stack *stack_a, t_stack *stack_b)
@@ -88,5 +105,6 @@ int	fill_stack_split(char *argv, t_stack *stack_a, t_stack *stack_b)
 		stack_size = fill_stack(split[i], stack_a, stack_b);
 		i++;
 	}
+	free_split(split, i);
 	return (stack_size);
 }
