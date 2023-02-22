@@ -6,7 +6,7 @@
 /*   By: tsodre-p <tsodre-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 15:06:32 by tsodre-p          #+#    #+#             */
-/*   Updated: 2023/02/22 15:03:41 by tsodre-p         ###   ########.fr       */
+/*   Updated: 2023/02/22 17:07:14 by tsodre-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int	check_stack(char *argv, t_stack *stack_a, t_stack *stack_b)
 	int	i;
 
 	i = 0;
-	while (i < stack_a->size)
+	while (i < stack_a->size - 1)
 	{
 		if (ft_atoi(argv) == stack_a->array[i])
 		{
@@ -69,6 +69,7 @@ int	fill_stack(char *argv, t_stack *stack_a, t_stack *stack_b)
 	{
 		stack_a->array[stack_a->size - 1] = ft_atoi(argv);
 	}
+	//stack_a->array[stack_a->size - 1] = ft_atoi(argv);
 	else
 		stack_a->size -= 1;
 	return (stack_a->size);
