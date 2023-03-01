@@ -6,7 +6,7 @@
 /*   By: tsodre-p <tsodre-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 15:06:32 by tsodre-p          #+#    #+#             */
-/*   Updated: 2023/02/22 17:07:14 by tsodre-p         ###   ########.fr       */
+/*   Updated: 2023/03/01 11:41:25 by tsodre-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,7 +92,8 @@ void	free_split(char **stack, int i)
 }
 
 /*fill stack with arguments passed if there is only 1
-string with numbers, using ft_split to get the args*/
+string with numbers, using ft_split to get the args -
+NOT WORKING PROPERLY*/
 int	fill_stack_split(char *argv, t_stack *stack_a, t_stack *stack_b)
 {
 	char	**split;

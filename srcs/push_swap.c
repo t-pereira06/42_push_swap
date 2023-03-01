@@ -6,7 +6,7 @@
 /*   By: tsodre-p <tsodre-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 10:58:00 by tsodre-p          #+#    #+#             */
-/*   Updated: 2023/02/22 18:07:20 by tsodre-p         ###   ########.fr       */
+/*   Updated: 2023/03/01 09:47:40 by tsodre-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,7 +110,7 @@ int	main(int argc, char **argv)
 	stack_b.array = ft_calloc((argc - 1), sizeof(int));
 	args_handle(argc, argv, &stack_a, &stack_b);
 	call_sort_stacks(&stack_a, &stack_b);
-	//print_stacks(stack_a, stack_b);
+	// print_stacks(stack_a, stack_b);
 	free(stack_a.array);
 	free(stack_b.array);
 	return (0);

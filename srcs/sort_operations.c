@@ -6,7 +6,7 @@
 /*   By: tsodre-p <tsodre-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/07 11:03:22 by tsodre-p          #+#    #+#             */
-/*   Updated: 2023/02/22 10:45:59 by tsodre-p         ###   ########.fr       */
+/*   Updated: 2023/03/01 10:48:20 by tsodre-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void	sort_3_numbers(t_stack *stack_a)
 		sa(stack_a);
 		rra(stack_a);
 	}
-	else if ((a[1] > a[0]) && (a[1] > a[2]) && a[0] < a[2])
+	else if ((a[1] > a[0]) && (a[1] > a[2]) && (a[0] < a[2]))
 	{
 		sa(stack_a);
 		ra(stack_a);
@@ -49,7 +49,9 @@ void	sort_5_numbers(t_stack *stack_a, t_stack *stack_b)
 	pb(stack_a, stack_b);
 	pb(stack_a, stack_b);
 	sort_3_numbers(stack_a);
-	sort_2_numbers(stack_b);
+	if (stack_b->array[1] < stack_b->array[0])
+		sb(stack_b);
+	//sort_2_numbers(stack_b);
 	operations(stack_a, stack_b);
 }
 
