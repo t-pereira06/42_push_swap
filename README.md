@@ -12,7 +12,7 @@ $ make bonus
 ```
 After compiling, execute the program, followed by the map:
 ```bash
-$ ./so_long map.ber
+$ ./so_long <map_name>.ber
 ```
 ## Controls 🎮
 
