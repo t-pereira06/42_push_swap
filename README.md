@@ -18,6 +18,7 @@ $ make fclean
 If you want to check how many moves the program did to organize the numbers, execute:
 ```bash
 $ ./push_swap <number1> <number2> ... | wc -l
+```
 
 <h3 align="left">
 push_swap Rules:
