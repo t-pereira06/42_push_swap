@@ -28,6 +28,7 @@ If you want to check how many moves the program did to organize the numbers, exe
 ```bash
 $ ./push_swap 3 2 1 4 5 | wc -l
 10
+10
 ```
 After executing the program, if you want to clean the object files, execute:
 ```bash
