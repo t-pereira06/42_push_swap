@@ -6,8 +6,6 @@ To compile the project:
 ```bash
 $ make
 ```
-
-```
 After compiling, execute the program, followed by numbers to order:
 ```bash
 $ ./push_swap <number1> <number2> ...
