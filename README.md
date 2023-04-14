@@ -10,13 +10,27 @@ After compiling, execute the program, followed by numbers to order:
 ```bash
 $ ./push_swap <number1> <number2> ...
 ```
-After executing the program, if you want to clean the object files, execute:
+After executing the program, the movements made by the program will appear in the terminal:
 ```bash
-$ make fclean
+$ ./push_swap 3 2 1 4 5
+pb
+pb
+pa
+sa
+rra
+rra
+pa
+ra
+ra
+ra
 ```
 If you want to check how many moves the program did to organize the numbers, execute:
 ```bash
 $ ./push_swap <number1> <number2> ... | wc -l
+```
+After executing the program, if you want to clean the object files, execute:
+```bash
+$ make fclean
 ```
 
 ## push_swap rules:
