@@ -20,9 +20,7 @@ If you want to check how many moves the program did to organize the numbers, exe
 $ ./push_swap <number1> <number2> ... | wc -l
 ```
 
-<h3 align="left">
 ## push_swap rules:
-</h3>
 The program is only allowed two stacks to work with, stack A and stack B. All the numbers are initially added to stack A, and B is empty.
 
 Moves:
@@ -39,9 +37,7 @@ Moves:
 * ```rrb``` (reverse rotate B): Shift all elements of stack b down by 1. The last element becomes the first one.
 * ```rrr``` : ```rra``` and ```rrb``` at the same time.
 
-<h3 align="left">
 Evaluation:
-</h3>
 
 * Sorting 3 values: no more than 3 moves.
 * Sorting 5 values: no more than 12 moves.
