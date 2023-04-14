@@ -21,7 +21,7 @@ $ ./push_swap <number1> <number2> ... | wc -l
 ```
 
 <h3 align="left">
-push_swap Rules:
+## push_swap rules:
 </h3>
 The program is only allowed two stacks to work with, stack A and stack B. All the numbers are initially added to stack A, and B is empty.
 
