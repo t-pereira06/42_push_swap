@@ -72,7 +72,7 @@ Evaluation:
   * 1 point for less than 11500
 
 # Example of the program running:
-![simplescreenrecorder-2023-04-17_15 22 57](https://user-images.githubusercontent.com/118270669/232516232-9a0f1bf9-aa0d-4760-8414-104d42bc6a2e.gif)
+
 
 # Grade:
 ![Screenshot from 2023-03-02 17-55-44](https://user-images.githubusercontent.com/118270669/222511939-fc694fa7-f182-4641-8bbe-e8aabab90526.png)
