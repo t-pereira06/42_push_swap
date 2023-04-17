@@ -71,5 +71,8 @@ Evaluation:
   * 2 points for less than 10000
   * 1 point for less than 11500
 
+# Example of the program running:
+[simplescreenrecorder-2023-04-17_15.20.17.webm](https://user-images.githubusercontent.com/118270669/232515853-44dd3b4a-3e1c-4dba-bd88-8ee7faa3d373.webm)
+
 # Grade:
 ![Screenshot from 2023-03-02 17-55-44](https://user-images.githubusercontent.com/118270669/222511939-fc694fa7-f182-4641-8bbe-e8aabab90526.png)
