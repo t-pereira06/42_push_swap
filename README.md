@@ -75,4 +75,5 @@ Evaluation:
 [simplescreenrecorder-2023-04-17_15.20.17.webm](https://user-images.githubusercontent.com/118270669/232516593-dee1d478-a425-4c28-bb57-00a83eafe9ec.webm)
 
 # Grade:
-![Screenshot from 2023-03-02 17-55-44](https://user-images.githubusercontent.com/118270669/222511939-fc694fa7-f182-4641-8bbe-e8aabab90526.png)
+![Screenshot from 2023-03-02 17-55-44](https://github.com/t-pereira06/42_push_swap/assets/118270669/c0f02287-6cad-4c10-8e35-0b77762779d4)
+
