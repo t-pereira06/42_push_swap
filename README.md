@@ -1,16 +1,34 @@
 # push_swap
-This project will make you sort data on a stack, with a limited set of instructions, using the lowest possible number of actions. To succeed you’ll have to manipulate various types of algorithms and choose the most appropriate solution (out of many) for an optimized data sorting.
 
-## How To Compile and Execute:
-To compile the project:
+This project challenges you to sort data on a stack using a limited set of instructions while minimizing the number of actions.
+To succeed, you will need to understand and manipulate various algorithms and choose the most efficient solution for optimized data sorting.
+
+---
+
+## Table of Contents
+- [How to Compile and Execute](#how-to-compile-and-execute)
+- [Rules and Instructions](#rules-and-instructions)
+- [Evaluation Criteria](#evaluation-criteria)
+- [Examples](#examples)
+- [Grade](#grade)
+
+---
+
+## How to Compile and Execute
+
+### Compilation
+To compile the project, simply run:
 ```bash
-$ make
+make
 ```
-After compiling, execute the program, followed by numbers to order:
+
+### Execution
+After compiling, you can execute the program by providing a sequence of numbers to sort:
 ```bash
-$ ./push_swap <number1> <number2> ...
+./push_swap <number1> <number2> ...
 ```
-After executing the program, the movements made by the program will appear in the terminal:
+
+Example:
 ```bash
 $ ./push_swap 3 2 1 4 5
 pb
@@ -24,56 +42,78 @@ ra
 ra
 ra
 ```
-If you want to check how many moves the program did to organize the numbers, execute:
+
+### Counting Moves
+If you want to see how many moves the program uses to sort the numbers, pipe the output into `wc -l`:
 ```bash
 $ ./push_swap 3 2 1 4 5 | wc -l
 10
 ```
-After executing the program, if you want to clean the object files, execute:
+
+### Cleaning Up
+To clean up the object files after execution, run:
 ```bash
-$ make fclean
+make fclean
 ```
 
-## push_swap rules:
-The program is only allowed two stacks to work with, stack A and stack B. All the numbers are initially added to stack A, and B is empty.
+---
 
-Moves:
+## Rules and Instructions
 
-* ```pa``` (push A): Take the first element at the top of B and put it at the top of A. Do nothing if B is empty.
-* ```pb``` (push B): Take the first element at the top of A and put it at the top of B. Do nothing if A is empty.
-* ```sa``` (swap A): Swap the first 2 elements at the top of stack A. Do nothing if there is only one or no elements.
-* ```sb``` (swap B): Swap the first 2 elements at the top of stack B. Do nothing if there is only one or no elements.
-* ```ss```: ```sa``` and ```sb``` at the same time.
-* ```ra``` (rotate A): Shift all elements of stack A up by 1. The first element becomes the last one.
-* ```rb``` (rotate B): Shift all elements of stack B up by 1. The first element becomes the last one.
-* ```rr```: ```ra``` and ```rb``` at the same time.
-* ```rra``` (reverse rotate A): Shift all elements of stack A down by 1. The last element becomes the first one.
-* ```rrb``` (reverse rotate B): Shift all elements of stack b down by 1. The last element becomes the first one.
-* ```rrr``` : ```rra``` and ```rrb``` at the same time.
+The program operates on two stacks: **Stack A** and **Stack B**. Initially, all numbers are loaded into Stack A, while Stack B starts empty. The goal is to sort the numbers in Stack A.
 
-Evaluation:
+### Moves
+Here are the allowed moves:
 
-* Sorting 3 values: no more than 3 moves.
-* Sorting 5 values: no more than 12 moves.
-* Sorting 100 values: rating from 1 to 5 points depending on the number of moves:
+- **`pa` (push A):** Move the top element of Stack B to the top of Stack A. Does nothing if Stack B is empty.
+- **`pb` (push B):** Move the top element of Stack A to the top of Stack B. Does nothing if Stack A is empty.
+- **`sa` (swap A):** Swap the first two elements of Stack A. Does nothing if there are fewer than two elements.
+- **`sb` (swap B):** Swap the first two elements of Stack B. Does nothing if there are fewer than two elements.
+- **`ss`:** Perform `sa` and `sb` simultaneously.
+- **`ra` (rotate A):** Shift all elements of Stack A up by one. The first element becomes the last.
+- **`rb` (rotate B):** Shift all elements of Stack B up by one. The first element becomes the last.
+- **`rr`:** Perform `ra` and `rb` simultaneously.
+- **`rra` (reverse rotate A):** Shift all elements of Stack A down by one. The last element becomes the first.
+- **`rrb` (reverse rotate B):** Shift all elements of Stack B down by one. The last element becomes the first.
+- **`rrr`:** Perform `rra` and `rrb` simultaneously.
 
-  * 5 points for less than 700
-  * 4 points for less than 900
-  * 3 points for less than 1100
-  * 2 points for less than 1300
-  * 1 point for less than 1500
+---
 
-* Sorting 500 values: rating from 1 to 5 points depending on the number of moves:
+## Evaluation Criteria
 
-  * 5 points for less than 5500
-  * 4 points for less than 7000
-  * 3 points for less than 8500
-  * 2 points for less than 10000
-  * 1 point for less than 11500
+### Sorting 3 Values
+- Maximum allowed moves: **3**
 
-# Example of the program running:
-[simplescreenrecorder-2023-04-17_15.20.17.webm](https://user-images.githubusercontent.com/118270669/232516593-dee1d478-a425-4c28-bb57-00a83eafe9ec.webm)
+### Sorting 5 Values
+- Maximum allowed moves: **12**
 
-# Grade:
-![Screenshot from 2023-03-02 17-55-44](https://github.com/t-pereira06/42_push_swap/assets/118270669/c0f02287-6cad-4c10-8e35-0b77762779d4)
+### Sorting 100 Values
+Points are awarded based on the number of moves:
+- **5 points:** Less than 700 moves
+- **4 points:** Less than 900 moves
+- **3 points:** Less than 1100 moves
+- **2 points:** Less than 1300 moves
+- **1 point:** Less than 1500 moves
 
+### Sorting 500 Values
+Points are awarded based on the number of moves:
+- **5 points:** Less than 5500 moves
+- **4 points:** Less than 7000 moves
+- **3 points:** Less than 8500 moves
+- **2 points:** Less than 10000 moves
+- **1 point:** Less than 11500 moves
+
+---
+
+## Examples
+
+### Demonstration
+Here is an example of the program running:
+
+[![Demo Video](https://user-images.githubusercontent.com/118270669/232516593-dee1d478-a425-4c28-bb57-00a83eafe9ec.webm)](https://user-images.githubusercontent.com/118270669/232516593-dee1d478-a425-4c28-bb57-00a83eafe9ec.webm)
+
+---
+
+## Grade
+
+![Grading Screenshot](https://github.com/t-pereira06/42_push_swap/assets/118270669/c0f02287-6cad-4c10-8e35-0b77762779d4)
