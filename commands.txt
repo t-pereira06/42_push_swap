@@ -1,0 +1,7 @@
+make
+cmake -B build -S .
+cmake --build build -j
+./build/test_suite
+lcov --capture --directory build/CMakeFiles/push_swap.dir --output-file coverage.info
+lcov --remove coverage.info '*/libft/*' '*/usr/*' '*/lib/*' '*/lib64/*' '*/CMakeFiles/*' -o coverage.filtered.info
+genhtml coverage.filtered.info --output-directory coverage_html
