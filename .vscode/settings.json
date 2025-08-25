@@ -5,6 +5,7 @@
 		"libft.h": "c",
 		"unistd.h": "c",
 		"stdio.h": "c",
-		"stdlib.h": "c"
+		"stdlib.h": "c",
+		"initializer_list": "cpp"
 	}
 }

@@ -1,6 +1,14 @@
 cmake_minimum_required(VERSION 3.10)
 project(push_swap C CXX)
 
+option(COVERAGE "Enable coverage flags" ON)
+
+if(COVERAGE)
+  # Compile with no optimizations + coverage
+  add_compile_options(-O0 -g --coverage)
+  add_link_options(--coverage)
+endif()
+
 set(CMAKE_C_STANDARD 99)
 set(CMAKE_CXX_STANDARD 11)
 
@@ -30,6 +38,14 @@ find_package(GTest REQUIRED)
 add_executable(test_suite
     tests/test_indexing.cpp
     tests/test_push_operations.cpp
+    tests/test_rev_rotate_operations.cpp
+    tests/test_rotate_operations.cpp
+    tests/test_sort_numbers_utils.cpp
+    tests/test_sort_operations_utils_2.cpp
+    tests/test_sort_operations_utils.cpp
+    tests/test_sort_operations.cpp
+    tests/test_start_stacks.cpp
+    tests/test_swap_operations.cpp
 )
 
 # Link push_swap, libft.a, and gtest

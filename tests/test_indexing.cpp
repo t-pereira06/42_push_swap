@@ -6,7 +6,7 @@ extern "C" {
 	#include "../libft/libft.h"
 	#undef new                        // restore "new" keyword
 	#include "../includes/push_swap.h"
-	#include "test_indexing.h"        // prototypes for the functions under test
+	//#include "test_indexing.h"        // prototypes for the functions under test
 	#include <stdlib.h>
 }
 
