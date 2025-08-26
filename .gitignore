@@ -1,4 +1,12 @@
+# Local tools / binaries
+checker_linux
 push_swap_visualizer/
-./checker_linux
+
+# Build artifacts
 build/
+*.o
+*.a
+*.so
+
+# VSCode config
 .vscode/

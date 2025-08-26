@@ -45,8 +45,7 @@ jobs:
             -v ${{ github.workspace }}:/app \
             -w /app \
             ghcr.io/t-pereira06/ubuntu-docker:latest \
-            bash -c "./tests/bin/run_tests" || bash -c "cmake -B build -S ." ||
-            bash -c "cmake --build build -j" || bash -c "./build/test_suite"
+            bash -c "cmake -B build -S . && cmake --build build -j && ./build/test_suite"
 
       - name: Run Tests and Upload Coverage to Codecov
         run: |
@@ -55,9 +54,8 @@ jobs:
             -w /app \
             -e CODECOV_TOKEN=${{ secrets.CODECOV_TOKEN }} \
             ghcr.io/t-pereira06/ubuntu-docker:latest \
-            bash -c "lcov --capture --directory build/CMakeFiles/push_swap.dir --output-file coverage.info" ||
-            bash -c "lcov --remove coverage.info '*/libft/*' '*/usr/*' '*/lib/*' '*/lib64/*' '*/CMakeFiles/*' -o coverage.filtered.info" ||
-            bash -c "genhtml coverage.filtered.info --output-directory coverage_html"
+            bash -c "lcov --capture --directory build/CMakeFiles/push_swap.dir --output-file coverage.info && \
+            genhtml coverage.info --output-directory coverage-report --function-coverage --legend --title 'push_swap Code Coverage'"
 
       - name: Upload coverage report artifact
         uses: actions/upload-artifact@v4

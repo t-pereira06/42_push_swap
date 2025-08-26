@@ -129,8 +129,12 @@ TEST(SortOperationsTest, Sort5Numbers_SortsAscending_BEmpty_ContainsTwoPbAndSome
     std::string out = ::testing::internal::GetCapturedStdout();
 
     // It must push two elements to B
-    int count_pb = 0, pos = 0;
-    while ((pos = out.find("pb\n", pos)) != std::string::npos) { count_pb++; pos += 3; }
+    int count_pb = 0;
+    std::string::size_type pos = 0;
+    while ((pos = out.find("pb\n", pos)) != std::string::npos) {
+        ++count_pb;
+        pos += 3;
+    }
     EXPECT_EQ(count_pb, 2);
 
     // And later bring them back with pa (at least twice)
