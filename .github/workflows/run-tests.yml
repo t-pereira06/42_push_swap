@@ -76,7 +76,7 @@ jobs:
     runs-on: ubuntu-latest
     needs: tests-and-coverage
 
-    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    if: github.event_name == 'push' && github.ref == 'refs/heads/master'
 
     environment:
       name: github-pages
