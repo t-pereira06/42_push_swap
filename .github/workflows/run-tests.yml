@@ -1,5 +1,3 @@
-name: Run Norminette, tests and deploy coverage report
-
 on:
   push:
     branches: [master]
